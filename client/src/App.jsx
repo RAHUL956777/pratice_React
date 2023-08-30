@@ -1,9 +1,9 @@
 import React from 'react'
 import {Routes,Route} from 'react-router-dom'
-import Register from './Register/Register'
-import Login from './Login/Login'
-import Home from "./Home/Home"
-import Navbar from './Nav/Navbar'
+import Register from './components/Register/Register'
+import Login from './components/Login/Login'
+import Home from "./components/Home/Home"
+import Navbar from './components/Nav/Navbar'
 
 const App = () => {
   return (
