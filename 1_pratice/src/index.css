@@ -1,0 +1,39 @@
+
+html,body{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+}
+
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  width: 300px;
+  background-color: gray;
+  border-radius: 10px;
+}
+
+button{
+  padding: 10px 15px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover{
+  box-shadow: 0 10px 10px 0 black;
+}
+
+p{
+  font-size: 25px;
+  color: white;
+}
+
