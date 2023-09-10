@@ -35,7 +35,7 @@ io.on("connection", (socket) => {
 
   socket.on("send-changes", (delta) => {
     console.log(delta);
-    socket.boradcast.emit("receive-changes", delta);
+    socket.broadcast.emit("receive-changes", delta);
   });
 
 });
