@@ -1,6 +1,8 @@
 const express = require("express");
 const http = require("http");
 const socketIo = require("socket.io");
+const mongoose = require("mongoose");
+const Document = require("./Document");
 
 const app = express();
 const server = http.createServer(app);
@@ -30,15 +32,45 @@ const io = socketIo(server, {
   },
 });
 
-io.on("connection", (socket) => {
-  console.log("connected");
-
-  socket.on("send-changes", (delta) => {
-    console.log(delta);
-    socket.broadcast.emit("receive-changes", delta);
-  });
-
+// mongodb connection
+mongoose.connect("mongodb://127.0.0.1:27017/google-docs", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
+
+mongoose.connection.on("connected", () => {
+  console.log("Connected to MongoDB");
+});
+
+mongoose.connection.on("error", (err) => {
+  console.error("MongoDB connection error:", err);
+});
+
+// socket connection
+io.on("connection", (socket) => {
+  socket.on("get-document", async (documentId) => {
+    const document = await findOrCreateDocument(documentId);
+    socket.join(documentId);
+    socket.emit("load-document", document.data);
+
+    socket.on("send-changes", (delta) => {
+      socket.broadcast.to(documentId).emit("receive-changes", delta);
+    });
+
+    socket.on("save-document", async (data) => {
+      await Document.findByIdAndUpdate(documentId, { data });
+    });
+  });
+});
+const defaultValue = "";
+
+async function findOrCreateDocument(id) {
+  if (id == null) return;
+
+  const document = await Document.findById(id);
+  if (document) return document;
+  return await Document.create({ _id: id, data: defaultValue });
+}
 
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
