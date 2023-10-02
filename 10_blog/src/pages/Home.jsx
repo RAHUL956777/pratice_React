@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
-import appwriteService from "../appwrite/appwriteService";
-import { Container, PostCard, setPosts } from "../components";
+import { useEffect, useState } from "react";
+import appwriteService from "../appwrite/config";
+import { Container, PostCard } from "../components";
 
 function Home() {
   const [posts, setPosts] = useState([]);
+
   useEffect(() => {
     appwriteService.getPosts().then((posts) => {
       if (posts) {
@@ -14,7 +15,7 @@ function Home() {
 
   if (posts.length === 0) {
     return (
-      <div className="w-full py-8 text-center">
+      <div className="w-full py-8 mt-4 text-center">
         <Container>
           <div className="flex flex-wrap">
             <div className="p-2 w-full">
@@ -31,11 +32,11 @@ function Home() {
     <div className="w-full py-8">
       <Container>
         <div className="flex flex-wrap">
-          {posts.map((post) => {
+          {posts.map((post) => (
             <div key={post.$id} className="p-2 w-1/4">
               <PostCard {...post} />
-            </div>;
-          })}
+            </div>
+          ))}
         </div>
       </Container>
     </div>
