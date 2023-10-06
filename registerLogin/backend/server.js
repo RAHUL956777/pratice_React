@@ -28,5 +28,21 @@ mongoose
     console.error("Database connection error:", error);
   });
 
+  // schema
+  const userSchema = new mongoose.Schema({
+    name:String,
+    email:String,
+    password:String,
+  })
+
+  // model
+  const User = mongoose.model("User",userSchema);
+
+
 //   routes
-app.get("/", () => {});
+app.post("/login", (req,res) => {
+    res.send("hello from login");
+});
+app.post("/register", (req,res) => {
+    console.log(req.body);
+});
