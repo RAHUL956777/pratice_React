@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Login.css";
+import axios from "axios";
 
 const Login = () => {
   const [user, setUser] = useState({
@@ -13,6 +14,17 @@ const Login = () => {
       ...prevUser,
       [name]: value,
     }));
+  };
+
+  const handleLogin = () => {
+    axios
+      .post("http://localhost:8000/login", user)
+      .then((res) => {
+        alert(res.data.message);
+      })
+      .catch((err) => {
+        alert(err);
+      });
   };
 
   return (
@@ -36,7 +48,9 @@ const Login = () => {
         required
         placeholder="Enter your password"
       />
-      <div className="button">Login</div>
+      <div className="button" onClick={handleLogin}>
+        Login
+      </div>
       <div>or</div>
       <div className="button">Register</div>
     </div>

@@ -28,21 +28,54 @@ mongoose
     console.error("Database connection error:", error);
   });
 
-  // schema
-  const userSchema = new mongoose.Schema({
-    name:String,
-    email:String,
-    password:String,
-  })
+// schema
+const userSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  password: String,
+});
 
-  // model
-  const User = mongoose.model("User",userSchema);
-
+// model
+const User = mongoose.model("User", userSchema);
 
 //   routes
-app.post("/login", (req,res) => {
-    res.send("hello from login");
+app.post("/login", (req, res) => {
+  const {email,password} = req.body;
+  User.findOne({email:email}).then((user,err)=>{
+    if(user){
+            if(user.password === password){
+              res.send({message:"Login Successfull",user:user})
+            }else{
+              res.send({message:"Password didn't match"})
+            }
+    }else{
+      res.send({message:"user not Registered"})
+    }
+  })
 });
-app.post("/register", (req,res) => {
-    console.log(req.body);
+
+app.post("/register", (req, res) => {
+  const { name, email, password } = req.body;
+  User.findOne({ email: email })
+    .then((user, err) => {
+      if (user) {
+        res.send({ message: "user already exist" });
+      } else {
+        const user = new User({
+          name,
+          email,
+          password,
+        });
+
+        user
+          .save()
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    })
+    .catch((err) => console.log(err));
 });
