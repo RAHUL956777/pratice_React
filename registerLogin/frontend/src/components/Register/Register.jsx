@@ -24,8 +24,8 @@ const Register = () => {
     if (name && email && password && password === reEnterPassword) {
       axios.post("http://localhost:8000/register", user).then((res) => {
         alert(res.data.message);
-        <Link to="/login" />;
       });
+      <Link to="/login" />;
     } else {
       alert("All field are requeirs");
     }
