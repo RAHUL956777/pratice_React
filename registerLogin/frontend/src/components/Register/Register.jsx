@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Register.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [user, setUser] = useState({
@@ -21,9 +22,10 @@ const Register = () => {
   const handleRegister = () => {
     const { name, email, password, reEnterPassword } = user;
     if (name && email && password && password === reEnterPassword) {
-      axios
-        .post("http://localhost:8000/register", user)
-        .then((res) => console.log(res));
+      axios.post("http://localhost:8000/register", user).then((res) => {
+        alert(res.data.message);
+        <Link to="/login" />;
+      });
     } else {
       alert("All field are requeirs");
     }
@@ -68,7 +70,9 @@ const Register = () => {
         Register
       </div>
       <div>or</div>
-      <div className="button">Login</div>
+      <Link to="/login">
+        <button className="button">Login</button>
+      </Link>
     </div>
   );
 };

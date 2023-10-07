@@ -70,7 +70,7 @@ app.post("/register", (req, res) => {
         user
           .save()
           .then((res) => {
-            console.log(res);
+            res.send({message:'Sucessfully Registered, Please login'}); 
           })
           .catch((err) => {
             console.log(err);
