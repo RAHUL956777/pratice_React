@@ -7,7 +7,11 @@ const Login = () => {
 
   const { setUser } = useContext(UserContext);
 
-  const handleClick = () => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setUser({ userName, password });
+  };
+
   return (
     <div>
       <h2>Login</h2>
@@ -23,7 +27,7 @@ const Login = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={handleClick}>Submit</button>
+      <button onClick={handleSubmit}>Submit</button>
     </div>
   );
 };
