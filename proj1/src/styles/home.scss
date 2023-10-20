@@ -4,9 +4,9 @@
   width: 100%;
   height: 100vh;
   background-color: $second;
+  border-radius: 0 0 200px 200px;
 
-
-  >main{
+  > main {
     position: absolute;
     text-transform: uppercase;
     display: flex;
@@ -17,22 +17,107 @@
     padding: 2rem;
     justify-content: center;
 
-    h1{
-        font: 400 6rem $text1;
-        color: $first;
-  }
-  p{
-        font: 900 1rem $text1;
-        color: $first;
-  }
+    h1 {
+      font: 400 6rem $text1;
+      color: $first;
+    }
+    p {
+      font: 900 1rem $text1;
+      color: $first;
+    }
   }
 
-  &::before{
+  &::before {
     content: "";
     width: 100%;
     height: 100%;
     position: absolute;
     background: no-repeat center/auto url("../assets/1.png");
-    filter: blur(3px);
- }
+    filter: blur(1px);
+    border-radius: 0 0 200px 200px;
+  }
+}
+
+.home2 {
+  width: 100%;
+  height: 100vh;
+  background-color: $second;
+  padding: 500px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -200px;
+
+  > img {
+    width: 30%;
+    animation: imgUp 0.7s linear infinite alternate;
+  }
+
+  > div {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+    height: 100vh;
+
+    p {
+      color: $first;
+      letter-spacing: 2px;
+      word-spacing: 5px;
+      font: 100 1.2rem $text2;
+    }
+  }
+}
+
+@keyframes imgUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+.home3 {
+  width: 100%;
+  height: 120vh;
+  background-color: $second;
+  margin-top: -200px;
+  display: flex;
+
+  > div {
+    width: 70%;
+    height: 100vh;
+    background-color: $first;
+    border-radius: 0 200px 200px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+
+    > h1 {
+      text-transform: uppercase;
+      border-bottom: 2px solid $dark;
+      padding: 0.5rem;
+      width: 15rem;
+      color: $dark;
+      margin-bottom: 1rem;
+    }
+
+    > h3 {
+      padding: 0.5rem;
+      color: $dark;
+    }
+
+    > p {
+      padding: 3.6rem;
+      letter-spacing: 1px;
+      word-spacing: 5px;
+      line-height: 170%;
+      font: italic 1.2rem $text2;
+    }
+  }
 }

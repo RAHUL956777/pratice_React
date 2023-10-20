@@ -1,3 +1,5 @@
+import vg from "../assets/2.webp";
+
 const Home = () => {
   return (
     <>
@@ -19,6 +21,22 @@ const Home = () => {
           </p>
         </div>
       </div>
+
+    <div className="home3">
+        <div>
+            <h1>Who we are?</h1>
+            <h3>Let&apos;s build a brighter digital future together.</h3>
+            <p>
+                Our mission is to empower businesses and individuals with the latest
+                web technologies, providing them with the tools and knowledge they
+                need to thrive in the digital age. We&apos;re here to turn your visions
+                into reality and make your online ventures a resounding success.
+                Join us on this exciting journey as we push the boundaries of what&apos;s
+                possible in web development. We&apos;re more than just a team; we&apos;re your
+                partners in digital transformation.
+            </p>
+        </div>
+    </div>
     </>
   );
 };
