@@ -1,4 +1,5 @@
 import vg from "../assets/2.webp";
+import {AiFillGoogleCircle,AiFillAmazonCircle,AiFillYoutube,AiFillInstagram} from "react-icons/ai"
 
 const Home = () => {
   return (
@@ -35,6 +36,39 @@ const Home = () => {
                 possible in web development. We&apos;re more than just a team; we&apos;re your
                 partners in digital transformation.
             </p>
+        </div>
+    </div>
+
+    <div className="home4">
+        <div>
+          <h1>Brands</h1>
+
+          <article>
+              <div style={{
+                animationDelay:"0.3s"
+              }}>
+                <AiFillGoogleCircle/>
+                <p>Google</p>
+              </div>
+              <div style={{
+                animationDelay:"0.5s"
+              }}>
+                <AiFillAmazonCircle/>
+                <p>Amazon</p>
+              </div>
+              <div style={{
+                animationDelay:"0.7s"
+              }}>
+                <AiFillYoutube/>
+                <p>Youtube</p>
+              </div>
+              <div style={{
+                animationDelay:"1s"
+              }}>
+                <AiFillInstagram/>
+                <p>Instagram</p>
+              </div>
+          </article>
         </div>
     </div>
     </>
