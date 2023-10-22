@@ -5,7 +5,7 @@ const Header = () => {
 
   return (
     <nav>
-      <h1>Rahul.</h1>
+      <h1>PixelPerfection.</h1>
       <main>
         <HashLink to={"/#home"}>Home</HashLink>
         <Link to={"/contact"}>Contact</Link>
