@@ -23,7 +23,7 @@ const Home = () => {
         </div>
       </div>
 
-    <div className="home3">
+    <div className="home3" id="about">
         <div>
             <h1>Who we are?</h1>
             <h3>Let&apos;s build a brighter digital future together.</h3>
@@ -39,7 +39,7 @@ const Home = () => {
         </div>
     </div>
 
-    <div className="home4">
+    <div className="home4" id="brands">
         <div>
           <h1>Brands</h1>
 
