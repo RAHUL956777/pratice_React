@@ -1,4 +1,4 @@
-import { Box, Heading, Image } from "@chakra-ui/react";
+import { Box, Container, Heading, Image, Stack, Text } from "@chakra-ui/react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import img1 from "../assets/1.jpg";
@@ -14,13 +14,49 @@ const headingOptions = {
   transform: "translate(-50%,-50%)",
   textTransform: "uppercase",
   p: "4",
-  size: "4xl",
+  size: "2xl",
 };
 
 const Home = () => {
   return (
     <Box>
       <MyCarousel />
+
+      <Container maxW="container.xl" minH={"100vh"} padding={"16"}>
+        <Heading
+          textTransform={"uppercase"}
+          py={"2"}
+          w={"fit-content"}
+          margin={"auto"}
+          borderBottom={"2px solid"}
+        >
+          Services
+        </Heading>
+
+        <Stack
+          h="full"
+          p={"4"}
+          alignItems={"center"}
+          direction={["column", "row"]}
+        >
+          <Image src={img5} h={["40", "400"]} filter={"hue-rotate(-130deg)"} />
+
+          <Text
+            letterSpacing={"widest"}
+            lineHeight={"190%"}
+            p={["4", "16"]}
+            textAlign={"center"}
+          >
+            Certainly, here&apos;s a 60-word dummy text: In the heart of a bustling
+            city, where innovation meets tradition, our company thrives. With a
+            team of dedicated experts, we create web solutions that redefine
+            excellence. We blend cutting-edge technology with creativity to
+            craft dynamic websites. Our mission is to empower your digital
+            presence and drive success. Join us on this exciting journey to a
+            brighter, digital future.
+          </Text>
+        </Stack>
+      </Container>
     </Box>
   );
 };
@@ -38,14 +74,7 @@ const MyCarousel = () => {
       <Box w="full" h={"100vh"}>
         <Image src={img1} />
         <Heading bgColor={"blackAlpha.600"} color={"white"} {...headingOptions}>
-          Wacth The Future
-        </Heading>
-      </Box>
-
-      <Box w="full" h={"100vh"}>
-        <Image src={img2} />
-        <Heading bgColor={"blackAlpha.600"} color={"white"} {...headingOptions}>
-          Wacth The Future
+          Future Of Gaming
         </Heading>
       </Box>
 
@@ -58,22 +87,15 @@ const MyCarousel = () => {
 
       <Box w="full" h={"100vh"}>
         <Image src={img3} />
-        <Heading bgColor={"blackAlpha.600"} color={"white"} {...headingOptions}>
-          Wacth The Future
+        <Heading bgColor={"whiteAlpha.900"} color={"black"} {...headingOptions}>
+          Gaming On Console
         </Heading>
       </Box>
 
       <Box w="full" h={"100vh"}>
         <Image src={img4} />
         <Heading bgColor={"blackAlpha.600"} color={"white"} {...headingOptions}>
-          Wacth The Future
-        </Heading>
-      </Box>
-
-      <Box w="full" h={"100vh"}>
-        <Image src={img5} />
-        <Heading bgColor={"blackAlpha.600"} color={"white"} {...headingOptions}>
-          Wacth The Future
+          Night Life Is Cool
         </Heading>
       </Box>
     </Carousel>
