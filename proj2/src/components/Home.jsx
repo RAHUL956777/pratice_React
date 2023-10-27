@@ -47,13 +47,13 @@ const Home = () => {
             p={["4", "16"]}
             textAlign={"center"}
           >
-            Certainly, here&apos;s a 60-word dummy text: In the heart of a bustling
-            city, where innovation meets tradition, our company thrives. With a
-            team of dedicated experts, we create web solutions that redefine
-            excellence. We blend cutting-edge technology with creativity to
-            craft dynamic websites. Our mission is to empower your digital
-            presence and drive success. Join us on this exciting journey to a
-            brighter, digital future.
+            Certainly, here&apos;s a 60-word dummy text: In the heart of a
+            bustling city, where innovation meets tradition, our company
+            thrives. With a team of dedicated experts, we create web solutions
+            that redefine excellence. We blend cutting-edge technology with
+            creativity to craft dynamic websites. Our mission is to empower your
+            digital presence and drive success. Join us on this exciting journey
+            to a brighter, digital future.
           </Text>
         </Stack>
       </Container>
@@ -72,28 +72,28 @@ const MyCarousel = () => {
       showThumbs={false}
     >
       <Box w="full" h={"100vh"}>
-        <Image src={img1} />
+        <Image src={img1} h={"full"} w={"full"} objectFit={"cover"} />
         <Heading bgColor={"blackAlpha.600"} color={"white"} {...headingOptions}>
           Future Of Gaming
         </Heading>
       </Box>
 
       <Box w="full" h={"100vh"}>
-        <Image src={img2} />
+        <Image src={img2} h={"full"} w={"full"} objectFit={"cover"} />
         <Heading bgColor={"blackAlpha.600"} color={"white"} {...headingOptions}>
           Wacth The Future
         </Heading>
       </Box>
 
       <Box w="full" h={"100vh"}>
-        <Image src={img3} />
+        <Image src={img3} h={"full"} w={"full"} objectFit={"cover"} />
         <Heading bgColor={"whiteAlpha.900"} color={"black"} {...headingOptions}>
           Gaming On Console
         </Heading>
       </Box>
 
       <Box w="full" h={"100vh"}>
-        <Image src={img4} />
+        <Image src={img4} h={"full"} w={"full"} objectFit={"cover"} />
         <Heading bgColor={"blackAlpha.600"} color={"white"} {...headingOptions}>
           Night Life Is Cool
         </Heading>
