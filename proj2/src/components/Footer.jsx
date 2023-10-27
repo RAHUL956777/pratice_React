@@ -49,7 +49,7 @@ const Footer = () => {
         </VStack>
 
         <VStack w={"full"}>
-          <Heading size={"md"} textTransform={"uppercase"}>
+          <Heading size={"md"} textTransform={"uppercase"} textAlign={['center','left']}>
             Social Media
           </Heading>
           <Button variant={"link"} colorScheme={"white"}>
