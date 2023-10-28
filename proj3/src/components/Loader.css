@@ -1,0 +1,38 @@
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loader {
+  width: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  background-color: #3498db;
+  border-radius: 50%;
+  animation: loader-animation 1.2s ease infinite;
+}
+
+.circle-2 {
+  animation-delay: 0.4s;
+}
+
+.circle-3 {
+  animation-delay: 0.8s;
+}
+
+@keyframes loader-animation {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
