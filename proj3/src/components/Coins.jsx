@@ -48,7 +48,7 @@ const Coins = () => {
       ) : (
         <>
 
-        <RadioGroup value={currency}>
+        <RadioGroup value={currency} onChange={setCurrency} p={'8'}>
         <HStack spacing={'4'}>
           <Radio value={'inr'}>₹</Radio>
           <Radio value={'usd'}>$</Radio>
@@ -57,7 +57,7 @@ const Coins = () => {
         </HStack>
         </RadioGroup>
 
-          <HStack wrap={"wrap"}>
+          <HStack wrap={"wrap"} justifyContent={"space-evenly"}>
             {coins.map((exchange) => (
               <CoinCard
                 id={exchange.id}
