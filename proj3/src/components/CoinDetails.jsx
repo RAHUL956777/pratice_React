@@ -22,12 +22,15 @@ import axios from "axios";
 
 import { server } from "../main.jsx";
 import Error from "./Error.jsx";
+import Chart from "./Chart.jsx";
 
 const CoinDetails = () => {
   const [coin, setCoin] = useState({});
   const [loading, SetLoading] = useState(true);
   const [error, setError] = useState(false);
   const [currency, setCurrency] = useState("inr");
+  const [days, setDays] = useState("24h");
+  const [chartArray,setChartArray] = useState([]);
 
   const currencySymbol =
     currency === "inr" ? "₹" : currency === "eur" ? "€" : "$";
@@ -38,8 +41,12 @@ const CoinDetails = () => {
     const fecthCoin = async () => {
       try {
         const { data } = await axios.get(`${server}/coins/${params.id}`);
-        console.log(data);
+        const {data:chartData} = await axios.get(
+          `${server}/coins/${params.id}/market_chart?vs_currency=${currency}&days=1`
+        );
+
         setCoin(data);
+        setChartArray(chartData.prices)
         SetLoading(false);
       } catch (error) {
         setError(true);
@@ -58,7 +65,7 @@ const CoinDetails = () => {
       ) : (
         <>
           <Box w={"full"} borderWidth={1}>
-            hello
+            <Chart arr={chartArray} currency={currency} days={days}/>
           </Box>
 
           <RadioGroup value={currency} onChange={setCurrency} p={"8"}>
