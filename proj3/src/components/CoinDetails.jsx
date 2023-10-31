@@ -1,6 +1,7 @@
 import {
   Badge,
   Box,
+  Button,
   Container,
   HStack,
   Image,
@@ -30,10 +31,53 @@ const CoinDetails = () => {
   const [error, setError] = useState(false);
   const [currency, setCurrency] = useState("inr");
   const [days, setDays] = useState("24h");
-  const [chartArray,setChartArray] = useState([]);
+  const [chartArray, setChartArray] = useState([]);
 
   const currencySymbol =
     currency === "inr" ? "₹" : currency === "eur" ? "€" : "$";
+
+  const btns = ["24h", "7d", "14d", "30d", "60d", "200d", "365d", "max"];
+
+  const switchChartStates = (val) => {
+    switch (val) {
+      case "24h":
+        setDays("24h");
+        SetLoading(true);
+        break;
+      case "7d":
+        setDays("7");
+        SetLoading(true);
+        break;
+      case "14d":
+        setDays("14");
+        SetLoading(true);
+        break;
+      case "30d":
+        setDays("30");
+        SetLoading(true);
+        break;
+      case "60d":
+        setDays("60");
+        SetLoading(true);
+        break;
+      case "200d":
+        setDays("200");
+        SetLoading(true);
+        break;
+      case "365d":
+        setDays("365");
+        SetLoading(true);
+        break;
+      case "max":
+        setDays("max");
+        SetLoading(true);
+        break;
+      default:
+        setDays("24h");
+        SetLoading(true);
+        break;
+    }
+  };
 
   const params = useParams();
 
@@ -41,12 +85,12 @@ const CoinDetails = () => {
     const fecthCoin = async () => {
       try {
         const { data } = await axios.get(`${server}/coins/${params.id}`);
-        const {data:chartData} = await axios.get(
+        const { data: chartData } = await axios.get(
           `${server}/coins/${params.id}/market_chart?vs_currency=${currency}&days=1`
         );
 
         setCoin(data);
-        setChartArray(chartData.prices)
+        setChartArray(chartData.prices);
         SetLoading(false);
       } catch (error) {
         setError(true);
@@ -54,7 +98,7 @@ const CoinDetails = () => {
       }
     };
     fecthCoin();
-  }, [params.id]);
+  }, [params.id, currency, days]);
 
   if (error) return <Error message={"Error while fecthing coins"} />;
 
@@ -65,8 +109,16 @@ const CoinDetails = () => {
       ) : (
         <>
           <Box w={"full"} borderWidth={1}>
-            <Chart arr={chartArray} currency={currency} days={days}/>
+            <Chart arr={chartArray} currency={currency} days={days} />
           </Box>
+
+          <HStack p={"4"} overflowX={'auto'}>
+            {btns.map((btn) => (
+              <Button key={btn} onClick={() => switchChartStates(btn)}>
+                {btn}
+              </Button>
+            ))}
+          </HStack>
 
           <RadioGroup value={currency} onChange={setCurrency} p={"8"}>
             <HStack spacing={"4"}>
