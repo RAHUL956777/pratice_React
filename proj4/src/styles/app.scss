@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Clicker+Script&family=Lato:wght@700&family=Playfair+Display:wght@700&family=Poppins:wght@300;400&family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+}
+
+@import "colors";
+@import "header";
+@import "home";
+
+body {
+  background-color: $primary;
+}
