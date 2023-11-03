@@ -1,21 +1,27 @@
+/* eslint-disable react/prop-types */
 import { AiFillDelete } from "react-icons/ai";
-
-const img1 =
-  "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&q=60&w=900&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFjYm9vayUyMHByb3xlbnwwfHwwfHx8MA%3D%3D";
-
-
+import { useSelector } from "react-redux";
 
 const Cart = () => {
+  const { cartItems } = useSelector((state) => state.cart);
+
   return (
     <div className="cart">
       <main>
-        <CartItem
-          imgSrc={img1}
-          name={"Mac Book"}
-          price={"21345"}
-          qty={1}
-          id="abcd"
-        />
+        {cartItems.length > 0 ? (
+          cartItems.map((i) => (
+            <CartItem
+              key={i.id}
+              imgSrc={i.imgSrc}
+              name={i.name}
+              price={i.price}
+              qty={i.quantity}
+              id={i.id}
+            />
+          ))
+        ) : (
+          <h1>No Items Yeat</h1>
+        )}
       </main>
 
       <aside>

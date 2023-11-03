@@ -13,6 +13,9 @@
       color: $tertiary;
       font: 100 2rem "Robot";
     }
+    &::-webkit-scrollbar{
+      display: none;
+    }
   }
 
   > aside {
