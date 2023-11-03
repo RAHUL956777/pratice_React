@@ -1,9 +1,26 @@
 /* eslint-disable react/prop-types */
 import { AiFillDelete } from "react-icons/ai";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Cart = () => {
-  const { cartItems } = useSelector((state) => state.cart);
+  const { cartItems, subTotal, tax, shipping, total } = useSelector(
+    (state) => state.cart
+  );
+
+  const dispacth = useDispatch();
+
+  const increment = (id) => {
+    dispacth({ type: "addToCart", payload: { id } });
+    dispacth({ type: "calculatePrice" });
+  };
+  const decrement = (id) => {
+    dispacth({ type: "decrement", payload: id });
+    dispacth({ type: "calculatePrice" });
+  };
+  const deleteHandler = (id) => {
+    dispacth({ type: "deleteFromCart", payload: id });
+    dispacth({ type: "calculatePrice" });
+  };
 
   return (
     <div className="cart">
@@ -17,6 +34,9 @@ const Cart = () => {
               price={i.price}
               qty={i.quantity}
               id={i.id}
+              decrement={decrement}
+              increment={increment}
+              deleteHandler={deleteHandler}
             />
           ))
         ) : (
@@ -25,9 +45,10 @@ const Cart = () => {
       </main>
 
       <aside>
-        <h2>Subtotal:${20000}</h2>
-        <h2>Shipping:${200}</h2>
-        <h2>Tax:${20}</h2>
+        <h2>Subtotal:${subTotal}</h2>
+        <h2>Shipping:${shipping}</h2>
+        <h2>Tax:${tax}</h2>
+        <h2>Tax:${total}</h2>
       </aside>
     </div>
   );
@@ -38,8 +59,8 @@ const CartItem = ({
   name,
   price,
   qty,
-  decrement,
   increment,
+  decrement,
   deleteHandler,
   id,
 }) => (
@@ -47,7 +68,7 @@ const CartItem = ({
     <img src={imgSrc} alt="image" />
     <article>
       <h3>{name}</h3>
-      <p>${price}</p>
+      <p>{price}</p>
     </article>
 
     <div>
