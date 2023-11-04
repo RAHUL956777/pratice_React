@@ -36,17 +36,15 @@ const cartReducer = createReducer(
     },
 
     calculatePrice: (state) => {
-      setTimeout(() => {
-        const subTotal = state.cartItems.reduce(
-          (acc, item) => acc + item.price * item.quantity,
-          0
-        );
-        const tax = subTotal * 0.1;
-        const total = subTotal + tax;
-        state.subTotal = subTotal;
-        state.tax = tax;
-        state.total = total;
-      }, 500);
+      const subTotal = state.cartItems.reduce(
+        (acc, item) => acc + item.price * item.quantity,
+        0
+      );
+      const tax = subTotal * 0.1;
+      const total = subTotal + tax;
+      state.subTotal = subTotal;
+      state.tax = tax;
+      state.total = total;
     },
   }
 );
