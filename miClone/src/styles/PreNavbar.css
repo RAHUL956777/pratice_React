@@ -1,0 +1,6 @@
+.preNav {
+  background-color: rgb(29, 28, 28);
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  color: white;
+}
