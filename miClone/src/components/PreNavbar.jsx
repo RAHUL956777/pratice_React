@@ -1,4 +1,5 @@
 import "../styles/PreNavbar.css";
+import {CartIcon} from "../assets/index.jsx";
 
 const PreNavbar = () => {
   return (
@@ -25,7 +26,9 @@ const PreNavbar = () => {
           SIGN UP
         </a>
         <span>|</span>
-        <a href="https://store.mi.com/in/site/login"> CART (0)</a>
+        <a href="https://store.mi.com/in/site/login">
+          {CartIcon} CART (0){}
+        </a>
       </div>
     </div>
   );
