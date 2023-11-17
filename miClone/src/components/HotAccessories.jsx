@@ -14,7 +14,7 @@ const HotAccessories = ({ music, musicCover }) => {
             key={item.name}
             name={item.name}
             price={item.price}
-            image={item.price}
+            image={item.image}
             index={index}
           />
         ))}

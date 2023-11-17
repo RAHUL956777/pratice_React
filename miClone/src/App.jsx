@@ -13,27 +13,26 @@ import HotAccessories from "./components/HotAccessories";
 function App() {
   return (
     <Router>
+      <PreNavbar />
+      <Navbar />
+      <Slider start={data.banner.start} />
+      <Offers offer={data.offer} />
+      <Heading text="STAR PRODUCTS" />
+      <StarProduct starProduct={data.starProduct} />
+      <Heading text="HOT ACCESSORIES" />
+      <HotAccessoriesMenu />
       <Routes>
-        <Route path="/">
-          <PreNavbar />
-          <Navbar />
-          <Slider start={data.banner.start} />
-          <Offers offer={data.offer} />
-          <Heading text="STAR PRODUCTS" />
-          <StarProduct starProduct={data.starProduct} />
-          <Heading text="HOT ACCESSORIES" />
-          <HotAccessoriesMenu />
-        </Route>
-
-        <Route exact path="/music">
-        <HotAccessories
-          music={data.hotAccessories.music}
-          musicCover={data.hotAccessoriesCover.music}
-        />
-      </Route>
+        <Route
+          exact
+          path="/music"
+          element={
+            <HotAccessories
+              music={data.hotAccessories.music}
+              musicCover={data.hotAccessoriesCover.music}
+            />
+          }
+        ></Route>
       </Routes>
-
-      
     </Router>
   );
 }
