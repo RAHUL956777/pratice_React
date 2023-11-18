@@ -1,0 +1,12 @@
+.ProductReviewCard {
+  margin: 0.5vmax;
+  background-color: white;
+  padding-bottom: 2vmax;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.ProductReviewCard:hover {
+  box-shadow: 0px 6px 15px rgba(53, 53, 53, 0.363);
+  transform: translateY(-0.4vmax);
+}

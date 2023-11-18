@@ -9,6 +9,7 @@ import StarProduct from "./components/StarProduct";
 import HotAccessoriesMenu from "./components/HotAccessoriesMenu";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HotAccessories from "./components/HotAccessories";
+import ProductReviews from "./components/ProductReviews";
 
 function App() {
   return (
@@ -57,8 +58,8 @@ function App() {
           path="/lifeStyle"
           element={
             <HotAccessories
-            lifeStyle={data.hotAccessories.lifeStyle}
-            lifeStyleCover={data.hotAccessoriesCover.lifeStyle}
+              lifeStyle={data.hotAccessories.lifeStyle}
+              lifeStyleCover={data.hotAccessoriesCover.lifeStyle}
             />
           }
         ></Route>
@@ -67,12 +68,17 @@ function App() {
           path="/mobileAccessories"
           element={
             <HotAccessories
-            mobileAccessories={data.hotAccessories.mobileAccessories}
-            mobileAccessoriesCover={data.hotAccessoriesCover.mobileAccessories}
+              mobileAccessories={data.hotAccessories.mobileAccessories}
+              mobileAccessoriesCover={
+                data.hotAccessoriesCover.mobileAccessories
+              }
             />
           }
         ></Route>
+
       </Routes>
+        <Heading text="PRODUCT REVIEWS" />
+        <ProductReviews productReviews={data.productReviews}/>
     </Router>
   );
 }
