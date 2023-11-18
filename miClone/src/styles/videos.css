@@ -1,6 +1,5 @@
-.ProductReviews{
+.videos{
     display: flex;
     width: 90;
     margin: auto;
-    justify-content: center;
 }
