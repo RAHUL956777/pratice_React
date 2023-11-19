@@ -6,7 +6,7 @@ const Videos = ({videos}) => {
     <div className="videos">
       {
         videos.map((item,index)=>(
-          <Videocard index={index} key={item.image} name={item.name}/>
+          <Videocard index={index} key={index} name={item.name} image={item.image}/>
         ))
       }
     </div>
