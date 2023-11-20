@@ -13,12 +13,26 @@ import ProductReviews from "./components/ProductReviews";
 import Videos from "./components/Videos";
 import Banner from "./components/Banner";
 import Footer from "./components/Footer";
+import NavOptions from "./components/NavOptions";
 
 function App() {
   return (
     <Router>
       <PreNavbar />
       <Navbar />
+
+      <NavOptions
+        miphones={data.miPhones}
+        redmiphones={data.redmiPhones}
+        tv={data.tv}
+        laptop={data.laptop}
+        fitnessAndLifeStyle={data.fitnessAndLifeStyle}
+        home={data.home}
+        accessories={data.accessories}
+        audio={data.audio}
+      />
+
+
       <Slider start={data.banner.start} />
       <Offers offer={data.offer} />
       <Heading text="STAR PRODUCTS" />
@@ -78,15 +92,14 @@ function App() {
             />
           }
         ></Route>
-
       </Routes>
-        <Heading text="PRODUCT REVIEWS" />
-        <ProductReviews productReviews={data.productReviews}/>
-        <Heading text="VIDEOS" />
-        <Videos videos={data.videos}/>
-        <Heading text="IN THE PRESS" />
-        <Banner banner={data.banner}/>
-        <Footer footer={data.footer}/>
+      <Heading text="PRODUCT REVIEWS" />
+      <ProductReviews productReviews={data.productReviews} />
+      <Heading text="VIDEOS" />
+      <Videos videos={data.videos} />
+      <Heading text="IN THE PRESS" />
+      <Banner banner={data.banner} />
+      <Footer footer={data.footer} />
     </Router>
   );
 }
