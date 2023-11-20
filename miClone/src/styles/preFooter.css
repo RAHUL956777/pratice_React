@@ -1,0 +1,109 @@
+.preFooter {
+  margin: 5vmax 0 0 0;
+  background-color: white;
+  padding: 1vmax;
+  padding-bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.preFooter > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(66, 66, 66, 0.829);
+  cursor: pointer;
+}
+
+.preFooter > div:hover svg {
+  fill: rgb(34, 34, 34);
+}
+
+.preFooter > div:hover p {
+  color: rgb(19, 18, 18);
+}
+
+.preFooter svg {
+  transform: scale(2) translateY(-0.2vmax);
+  fill: rgba(37, 37, 37, 0.322);
+  margin: 2vmax;
+}
+
+/* pre footer 2 */
+.preFooter2 {
+  display: grid;
+  height: 150px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.preFooter2 > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.preFooter2 > div > p{
+    color: rgba(0, 0, 0, 0.842);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.5vmax;
+    width: 18vmax;
+    margin: 0%;
+}
+
+
+.preFooter2 > div > span{
+    color: rgba(51, 51, 51, 0.842);
+    width: 18vmax;
+    font-size: 1vmax;
+}
+
+.preFooter2  > div > div > input{
+    border: none;
+    outline: none;
+    padding: 0.5vmax 1vmax;
+    background-color: rgb(255, 255, 255);
+    font-size: 1vmax;
+    width: 20.4vmax;
+}
+
+.preFooter2  > div > div > button{
+    border: none;
+    padding: 0.5vmax;
+    background-color: rgb(255, 255, 255);
+    outline: none;
+}
+
+.preFooter2  > div > div{
+    border: 1px solid rgba(126, 126, 126, 0.493);
+}
+
+.preFooter2  > div:nth-child(2) >span{
+    width: 22vmax;
+}
+
+.preFooter2  > div:nth-child(3){
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.preFooter2  > div:nth-child(3) > p{
+    width: 14vmax;
+}
+.preFooter2  > div:nth-child(3) > span{
+    width: 14vmax;
+}
+
+.preFooter2  > div:nth-child(4){
+    flex-direction: row;
+}
+
+.preFooter2  > div:nth-child(4) > svg{
+    cursor: pointer;
+    margin: 1vmax;
+    fill: rgba(138, 138, 138, 0.705);
+}
+
+.preFooter2  > div:nth-child(4) > svg:hover{
+    fill: rgb(34, 34, 34);
+}
