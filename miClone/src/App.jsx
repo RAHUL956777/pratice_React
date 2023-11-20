@@ -86,7 +86,7 @@ function App() {
         <Videos videos={data.videos}/>
         <Heading text="IN THE PRESS" />
         <Banner banner={data.banner}/>
-        <Footer />
+        <Footer footer={data.footer}/>
     </Router>
   );
 }
