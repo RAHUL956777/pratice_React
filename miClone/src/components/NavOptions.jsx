@@ -25,7 +25,7 @@ const NavOptions = ({
 
 
     useEffect(()=>{
-      if(window.location.pathname ==="/miphones"){
+      if(window.location.pathname ==="/mi phones"){
         return setMiPhoneToggle(true);
       }
       if(window.location.pathname ==="/redmiphones"){
