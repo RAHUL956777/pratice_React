@@ -1,0 +1,58 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  width: 100vw;
+}
+
+.form > label {
+  font-size: 1.3rem;
+}
+
+.form > input {
+  width: 35%;
+  height: 2rem;
+  margin: 1rem;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.form > label > span {
+  color: orangered;
+}
+
+.cehckbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.form > .cehckbox > input {
+  margin: 0 0.5rem;
+}
+
+.form > .cehckbox > label {
+  font-size: 1.3rem;
+}
+
+.form > button {
+  width: 8%;
+  height: 2rem;
+  margin: 1rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: orangered;
+  color: white;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.form > button:hover {
+  background-color: white;
+  color: orangered;
+  border: 1px solid orangered;
+}

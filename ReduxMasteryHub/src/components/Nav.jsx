@@ -8,7 +8,6 @@ const Nav = () => {
         <h1>RTK</h1>
       </div>
       <div className="text">
-        <Link to="/">Home</Link>
         <Link to="/createpost">Create Post</Link>
         <Link to="/allpost">All Post</Link>
       </div>

@@ -10,7 +10,7 @@ import Create from './components/Create.jsx'
 const router =createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />} >
-      <Route path="/createpost" element={<Create />} />
+      <Route exact path="/createpost" element={<Create />} />
       </Route>
   )
 )
