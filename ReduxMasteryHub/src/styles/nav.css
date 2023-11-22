@@ -1,0 +1,66 @@
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    height: 10vh;
+    background-color: rgba(87, 87, 87, 0.378);
+}
+
+.navbar > .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10vw;
+    height: 100%;
+    font-size: 1.2rem;
+
+}
+
+.navbar > .text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    height: 100%;
+    font-size: 1.2rem;
+    font-weight: 200;
+    color: white;
+}
+
+.navbar > .text > a{
+    text-decoration: none;
+    padding: 1rem;
+    color: black;
+}
+
+.navbar > .search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+}
+
+.search > input{
+    width: 30%;
+    height: 40%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding-left: 0.5rem;
+}
+
+.search > button{
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.search > button:hover{
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
