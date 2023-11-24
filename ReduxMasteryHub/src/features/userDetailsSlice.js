@@ -4,7 +4,7 @@ const URL = import.meta.env.VITE_MOCK_API;
 // create action
 export const createUser = createAsyncThunk(
   "createUser",
-  async (data, rejectWithValue) => {
+  async (data, { rejectWithValue }) => {
     const responce = await fetch(URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -23,11 +23,13 @@ export const createUser = createAsyncThunk(
 // read action
 export const showUser = createAsyncThunk(
   "showUser",
-  async ({ rejectWithValue }) => {
-    const responce = await fetch(URL);
-
+  async (data, { rejectWithValue }) => {
+    const responce = await fetch(URL, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
     try {
-      const result = (await responce).json();
+      const result = await responce.json();
       return result;
     } catch (error) {
       return rejectWithValue(error);
@@ -38,11 +40,11 @@ export const showUser = createAsyncThunk(
 export const userDetail = createSlice({
   name: "userDetails",
   initialState: {
-    user: [],
+    users: [],
     loading: false,
     error: null,
   },
-  extraReducer: {
+  extraReducers: {
     [createUser.pending]: (state) => {
       state.loading = true;
     },
@@ -52,20 +54,19 @@ export const userDetail = createSlice({
     },
     [createUser.rejected]: (state, action) => {
       state.loading = false;
+      state.error = action.payload;
+    },
+
+    [showUser.pending]: (state) => {
+      state.loading = true;
+    },
+    [showUser.fulfilled]: (state, action) => {
+      state.loading = false;
       state.users = action.payload;
     },
-    extraReducer: {
-      [showUser.pending]: (state) => {
-        state.loading = true;
-      },
-      [showUser.fulfilled]: (state, action) => {
-        state.loading = false;
-        state.users = action.payload;
-      },
-      [showUser.rejected]: (state, action) => {
-        state.loading = false;
-        state.users = action.payload;
-      },
+    [showUser.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
     },
   },
 });

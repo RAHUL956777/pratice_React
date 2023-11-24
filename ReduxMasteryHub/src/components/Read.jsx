@@ -4,9 +4,9 @@ import { showUser } from "../features/userDetailsSlice";
 import { useEffect } from "react";
 
 const Read = () => {
-  const dispatch = useDispatch(); // Fix the typo here
+  const dispatch = useDispatch();
 
-  const { users, loading } = useSelector((state) => state.app);
+  const {users,loading} =  useSelector((state) => state.app)
   console.log(users);
 
   useEffect(() => {
