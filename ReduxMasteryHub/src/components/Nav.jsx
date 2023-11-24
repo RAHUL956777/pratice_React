@@ -8,8 +8,8 @@ const Nav = () => {
         <h1>RTK</h1>
       </div>
       <div className="text">
-        <Link to="/createpost">Create Post</Link>
-        <Link to="/allpost">All Post</Link>
+        <Link to="/">Create Post</Link>
+        <Link to="/read">All Post</Link>
       </div>
       <div className="search">
         <input type="text" placeholder="serach here" />

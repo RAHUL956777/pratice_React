@@ -20,6 +20,21 @@ export const createUser = createAsyncThunk(
   }
 );
 
+// read action
+export const showUser = createAsyncThunk(
+  "showUser",
+  async ({ rejectWithValue }) => {
+    const responce = await fetch(URL);
+
+    try {
+      const result = (await responce).json();
+      return result;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+
 export const userDetail = createSlice({
   name: "userDetails",
   initialState: {
@@ -38,6 +53,19 @@ export const userDetail = createSlice({
     [createUser.rejected]: (state, action) => {
       state.loading = false;
       state.users = action.payload;
+    },
+    extraReducer: {
+      [showUser.pending]: (state) => {
+        state.loading = true;
+      },
+      [showUser.fulfilled]: (state, action) => {
+        state.loading = false;
+        state.users = action.payload;
+      },
+      [showUser.rejected]: (state, action) => {
+        state.loading = false;
+        state.users = action.payload;
+      },
     },
   },
 });

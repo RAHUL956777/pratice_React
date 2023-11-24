@@ -2,10 +2,12 @@ import { useState } from "react";
 import "../styles/create.css";
 import { useDispatch } from "react-redux";
 import { createUser } from "../features/userDetailsSlice";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
   const [users, setUsers] = useState({});
   const dispacth = useDispatch();
+  const navigate = useNavigate();
 
   const geruserData = (e) => {
     setUsers({ ...users, [e.target.name]: e.target.value });
@@ -16,10 +18,14 @@ const Create = () => {
     e.preventDefault();
     dispacth(createUser(users));
     console.log(users);
+      navigate("/read");
   };
 
   return (
+    
+    <>
     <form className="form" onSubmit={handleSubmit}>
+    <h2>Fill the data</h2>
       <label htmlFor="name">
         <span>*</span>Name :{" "}
       </label>
@@ -56,6 +62,7 @@ const Create = () => {
 
       <button>Send</button>
     </form>
+    </>
   );
 };
 

@@ -7,6 +7,11 @@
   width: 100vw;
 }
 
+.form > h2{
+  font-size: 2rem;
+  margin: 1rem;
+}
+
 .form > label {
   font-size: 1.3rem;
 }
