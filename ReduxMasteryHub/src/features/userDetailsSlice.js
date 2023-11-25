@@ -37,6 +37,21 @@ export const showUser = createAsyncThunk(
   }
 );
 
+// delete action
+export const deleteUser = createAsyncThunk(
+  "deleteUser",
+  async (id, { rejectWithValue }) => {
+    const responce = await fetch(`${URL}/${id}`, { method: "DELETE" });
+
+    try {
+      const result = await responce.json();
+      return result;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+
 export const userDetail = createSlice({
   name: "userDetails",
   initialState: {
@@ -65,6 +80,22 @@ export const userDetail = createSlice({
       state.users = action.payload;
     },
     [showUser.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+
+    // delete user
+    [deleteUser.pending]: (state) => {
+      state.loading = true;
+    },
+    [deleteUser.fulfilled]: (state, action) => {
+      state.loading = false;
+      const { id } = action.payload;
+      if (id) {
+        state.users = state.users.filter((element) => element.id !== id);
+      }
+    },
+    [deleteUser.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.payload;
     },

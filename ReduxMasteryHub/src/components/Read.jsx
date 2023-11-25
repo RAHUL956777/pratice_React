@@ -3,6 +3,8 @@ import "../styles/read.css";
 import { showUser } from "../features/userDetailsSlice";
 import { useEffect, useState } from "react";
 import CustomModals from "./CustomModals";
+import { Link } from "react-router-dom";
+import { deleteUser } from "../features/userDetailsSlice";
 
 const Read = () => {
   const dispatch = useDispatch();
@@ -11,7 +13,6 @@ const Read = () => {
   const [showPopup, setShowPopup] = useState(false);
 
   const { users, loading } = useSelector((state) => state.app);
-  console.log(users);
 
   useEffect(() => {
     dispatch(showUser());
@@ -44,10 +45,10 @@ const Read = () => {
                 View
               </button>
               <button>
-                <a href="">Edit</a>
+                <Link >Edit</Link>
               </button>
               <button>
-                <a href="">Delete</a>
+                <Link onClick={()=>dispatch(deleteUser(element.id))}>Delete</Link>
               </button>
             </div>
           </div>
