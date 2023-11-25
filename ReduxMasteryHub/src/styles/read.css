@@ -1,4 +1,4 @@
-.wrapper{
+.wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,16 +8,15 @@
   padding-top: 5rem;
 }
 
-.wrapper > h2{
+.wrapper > h2 {
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }
 
-
 .read {
   display: flex;
-flex-direction: column;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 50vw;
@@ -27,7 +26,7 @@ flex-direction: column;
   border-radius: 20px;
 }
 
-.read > .card{
+.read > .card {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,25 +38,25 @@ flex-direction: column;
   margin-bottom: 1rem;
 }
 
-.read > .card > h5{
+.read > .card > h5 {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }
 
-.read > .card > h6{
+.read > .card > h6 {
   font-size: 1.2rem;
   font-weight: 400;
   margin-bottom: 1rem;
 }
 
-.read > .card > p{
+.read > .card > p {
   font-size: 1.1rem;
   font-weight: 200;
   margin-bottom: 1rem;
 }
 
-.read >.links{
+.read > .links {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,7 +64,7 @@ flex-direction: column;
   padding: 0.5rem;
 }
 
-.read >.links > button{
+.read > .links > button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,12 +76,11 @@ flex-direction: column;
   transition: all 0.5s ease-in-out;
 }
 
-.read >.links > button:hover{
- box-shadow: 0 0 10px rgba(0,0,0,0.5);
- transform: rotate(360deg);
+.read > .links > button:hover {
+  box-shadow: 0 0 25px rgba(32, 1, 1, 0.659);
 }
 
-.read >.links > button > a{
+.read > .links > button > a {
   text-decoration: none;
   padding: 1rem;
   color: black;

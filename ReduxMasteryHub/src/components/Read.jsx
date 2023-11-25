@@ -1,10 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import "../styles/read.css";
 import { showUser } from "../features/userDetailsSlice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import CustomModals from "./CustomModals";
 
 const Read = () => {
   const dispatch = useDispatch();
+
+  const [id, setId] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
 
   const { users, loading } = useSelector((state) => state.app);
   console.log(users);
@@ -19,6 +23,13 @@ const Read = () => {
 
   return (
     <div className="wrapper">
+      {showPopup && (
+        <CustomModals
+          id={id}
+          setShowPopup={setShowPopup}
+          showPopup={showPopup}
+        />
+      )}
       <h2>All Data</h2>
       {users &&
         users.map((element, index) => (
@@ -26,12 +37,18 @@ const Read = () => {
             <div className="card">
               <h5>{element.name}</h5>
               <h6>{element.email}</h6>
-              <p>{element.age}</p>
+              <p>{element.gender}</p>
             </div>
             <div className="links">
-              <button><a href="">View</a></button>
-              <button><a href="">Edit</a></button>
-              <button><a href="">Delete</a></button>
+              <button onClick={() => [setId(element.id), setShowPopup(true)]}>
+                View
+              </button>
+              <button>
+                <a href="">Edit</a>
+              </button>
+              <button>
+                <a href="">Delete</a>
+              </button>
             </div>
           </div>
         ))}
