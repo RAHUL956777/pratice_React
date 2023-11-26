@@ -117,17 +117,21 @@ export const userDetail = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
+
+    // update user
     [updateUser.pending]: (state) => {
       state.loading = true;
     },
     [updateUser.fulfilled]: (state, action) => {
-        state.loading = false;
-        state.users.push(action.payload);
+      state.loading = false;
+      state.users = state.users.map((element) => {
+        element.id === action.payload.id ? action.payload : element;
+      });
     },
-    [createUser.rejected]:(state,action)=>{
+    [createUser.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.payload;
-    }
+    },
   },
 });
 
