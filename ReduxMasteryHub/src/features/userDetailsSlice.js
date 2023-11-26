@@ -52,6 +52,24 @@ export const deleteUser = createAsyncThunk(
   }
 );
 
+// update action
+export const updateUser = createAsyncThunk(
+  "updateUser",
+  async (data, { rejectWithValue }) => {
+    const responce = await fetch(`${URL}/${data.id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    try {
+      const result = await responce.json();
+      return result;
+    } catch (error) {
+      return rejectWithValue("error while calling api endpoint", error);
+    }
+  }
+);
+
 export const userDetail = createSlice({
   name: "userDetails",
   initialState: {
@@ -99,6 +117,17 @@ export const userDetail = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
+    [updateUser.pending]: (state) => {
+      state.loading = true;
+    },
+    [updateUser.fulfilled]: (state, action) => {
+        state.loading = false;
+        state.users.push(action.payload);
+    },
+    [createUser.rejected]:(state,action)=>{
+      state.loading = false;
+      state.error = action.payload;
+    }
   },
 });
 

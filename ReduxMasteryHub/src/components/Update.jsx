@@ -1,24 +1,35 @@
 import { useParams } from "react-router-dom";
 import "../styles/create.css";
-import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect,useState } from "react";
+import { updateUser } from "../features/userDetailsSlice";
 
 const Update = () => {
   const { id } = useParams();
   const [updateData, setUpdateData] = useState([]);
+  const dispatch = useDispatch();
 
-  const { users, loading } = useSelector((state) => state.app.users);
+  const { users, loading } = useSelector((state) => state.app);
   useEffect(() => {
     if (id) {
       const singleuser = users.filter((element) => element.id === id);
-      setUpdateData(singleuser);
+      setUpdateData(singleuser[0]);
     }
-  });
+  },[id,users]);
+
+  const newData =(e)=>{
+      setUpdateData({...updateData,[e.target.name]:e.target.value})
+  }
+
+  const handleUpdate = (e) => {
+    e.preventDefault();
+      dispatch(updateUser(updateData))
+  }
 
   return (
     <form
       className="form"
-      // onSubmit={handleSubmit}
+      onSubmit={handleUpdate}
     >
       <h2>Fill the data</h2>
       <label htmlFor="name">
@@ -28,7 +39,8 @@ const Update = () => {
         type="text"
         required
         name="name"
-        //   onChange={geruserData}
+        value = {updateData && updateData.name}
+          onChange={newData}
       />
 
       <label htmlFor="email">
@@ -38,7 +50,8 @@ const Update = () => {
         type="email"
         required
         name="email"
-        //   onChange={geruserData}
+        value={updateData && updateData.email}
+        onChange={newData}
       />
 
       <label htmlFor="Age">
@@ -48,7 +61,8 @@ const Update = () => {
         type="number"
         required
         name="age"
-        //   onChange={geruserData}
+        value={updateData && updateData.age}
+        onChange={newData}
       />
 
       <div className="cehckbox">
@@ -56,21 +70,24 @@ const Update = () => {
           type="radio"
           name="gender"
           value="Male"
-          // onChange={geruserData}
+          checked={updateData && updateData.gender === "Male"}
+          onChange={newData}
         />
         <label htmlFor="male">Male</label>
         <input
           type="radio"
           name="gender"
           value="Female"
-          //   onChange={geruserData}
+          checked={updateData && updateData.gender === "Female"}
+          onChange={newData}
         />
         <label htmlFor="female">Female</label>
         <input
           type="radio"
           name="gender"
           value="other"
-          //   onChange={geruserData}
+          checked={updateData && updateData.gender === "others"}
+          onChange={newData}
         />
         <label htmlFor="others">Others</label>
       </div>
