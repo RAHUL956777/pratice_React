@@ -1,10 +1,18 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "../styles/nav.css";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { searchUser } from "../features/userDetailsSlice";
 
 const Nav = () => {
+  const allusers = useSelector((state) => state.app.users);
+  const dispacth = useDispatch();
 
-  const allusers = useSelector((state)=>state.app.users);
+  const [searchData, setSearchData] = useState("");
+
+  useEffect(()=>{
+    dispacth(searchUser(searchData))
+  },[searchData,dispacth])
 
   return (
     <div className="navbar">
@@ -16,7 +24,11 @@ const Nav = () => {
         <Link to="/read">All Post ({allusers.length})</Link>
       </div>
       <div className="search">
-        <input type="text" placeholder="serach here" />
+        <input
+          type="search"
+          placeholder="serach here"
+          onChange={(e) => setSearchData(e.target.value)}
+        />
         <button>Search</button>
       </div>
     </div>

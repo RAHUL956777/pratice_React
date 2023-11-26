@@ -12,7 +12,7 @@ const Read = () => {
   const [id, setId] = useState("");
   const [showPopup, setShowPopup] = useState(false);
 
-  const { users, loading } = useSelector((state) => state.app);
+  const { users, loading, searchData } = useSelector((state) => state.app);
 
   useEffect(() => {
     dispatch(showUser());
@@ -33,26 +33,38 @@ const Read = () => {
       )}
       <h2>All Data</h2>
       {users &&
-        users.map((element, index) => (
-          <div className="read" key={index}>
-            <div className="card">
-              <h5>{element.name}</h5>
-              <h6>{element.email}</h6>
-              <p>{element.gender}</p>
+        users
+          .filter((element) => {
+            if (searchData.length === 0) {
+              return element;
+            } else {
+              return element.name
+                .toLowerCase()
+                .includes(searchData.toLowerCase());
+            }
+          })
+          .map((element, index) => (
+            <div className="read" key={index}>
+              <div className="card">
+                <h5>{element.name}</h5>
+                <h6>{element.email}</h6>
+                <p>{element.gender}</p>
+              </div>
+              <div className="links">
+                <button onClick={() => [setId(element.id), setShowPopup(true)]}>
+                  View
+                </button>
+                <button>
+                  <Link to={`/edit/${element.id}`}>Edit</Link>
+                </button>
+                <button>
+                  <Link onClick={() => dispatch(deleteUser(element.id))}>
+                    Delete
+                  </Link>
+                </button>
+              </div>
             </div>
-            <div className="links">
-              <button onClick={() => [setId(element.id), setShowPopup(true)]}>
-                View
-              </button>
-              <button>
-                <Link to={`/edit/${element.id}`}>Edit</Link>
-              </button>
-              <button>
-                <Link onClick={()=>dispatch(deleteUser(element.id))}>Delete</Link>
-              </button>
-            </div>
-          </div>
-        ))}
+          ))}
     </div>
   );
 };
