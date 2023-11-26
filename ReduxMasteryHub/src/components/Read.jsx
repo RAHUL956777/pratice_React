@@ -11,6 +11,7 @@ const Read = () => {
 
   const [id, setId] = useState("");
   const [showPopup, setShowPopup] = useState(false);
+  const [radioData, setRadioData] = useState("");
 
   const { users, loading, searchData } = useSelector((state) => state.app);
 
@@ -32,6 +33,33 @@ const Read = () => {
         />
       )}
       <h2>All Data</h2>
+      <div className="filters">
+        <input
+          name="gender"
+          type="radio"
+          value=""
+          checked={radioData === ""}
+          onChange={() => setRadioData("")}
+        />
+        <label htmlFor="all">All</label>
+        <input
+          name="gender"
+          type="radio"
+          value="Male"
+          checked={radioData === "Male"}
+          onChange={(e) => setRadioData(e.target.value)}
+        />
+        <label htmlFor="all">Male</label>
+        <input
+          name="gender"
+          type="radio"
+          value="Female"
+          checked={radioData === "Female"}
+          onChange={(e) => setRadioData(e.target.value)}
+        />
+        <label htmlFor="all">Female</label>
+      </div>
+
       {users &&
         users
           .filter((element) => {
@@ -42,6 +70,13 @@ const Read = () => {
                 .toLowerCase()
                 .includes(searchData.toLowerCase());
             }
+          })
+          .filter((element) => {
+            if (radioData === "Male") {
+              return element.gender === radioData;
+            } else if (radioData === "Female") {
+              return element.gender === radioData;
+            } else return element;
           })
           .map((element, index) => (
             <div className="read" key={index}>
