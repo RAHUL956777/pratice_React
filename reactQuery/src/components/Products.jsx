@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
+import Link from "react-router-dom";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchProductsData = async () => {
+      setIsLoading(true);
+
       try {
         const response = await fetch("https://dummyjson.com/products");
         if (!response.ok) {
@@ -13,17 +17,25 @@ const Products = () => {
 
         const data = await response.json();
         if (!Array.isArray(data.products)) {
-          throw new Error("Invalid data format: expected 'products' to be an array");
+          throw new Error(
+            "Invalid data format: expected 'products' to be an array"
+          );
         }
 
         setProducts(data.products);
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching products:", error);
+        setIsLoading(false);
       }
     };
 
     fetchProductsData();
   }, []);
+
+  if (isLoading) {
+    return <h3>Loading...</h3>;
+  }
 
   return (
     <div className="bg-white">
@@ -45,10 +57,10 @@ const Products = () => {
               <div className="mt-4 flex justify-between">
                 <div>
                   <h3 className="text-sm text-gray-700">
-                    <a href="">
+                    <Link to={`/products/${product.id}`}>
                       <span aria-hidden="true" className="absolute inset-0" />
                       {product.title}
-                    </a>
+                    </Link>
                   </h3>
                   <p className="mt-1 text-sm text-gray-500">
                     {product.category}
