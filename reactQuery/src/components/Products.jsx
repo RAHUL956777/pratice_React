@@ -1,40 +1,57 @@
-import { useState, useEffect } from "react";
-import Link from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+// import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Products = () => {
-  const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const fetchProductsData = async () => {
+    const response = await fetch("https://dummyjson.com/products");
+    const data = await response.json();
+    return data.products;
+  };
+  const {
+    isLoading,
+    error,
+    data: products,
+  } = useQuery({ queryKey: ["products"], queryFn: fetchProductsData });
 
-  useEffect(() => {
-    const fetchProductsData = async () => {
-      setIsLoading(true);
+  // const [products, setProducts] = useState([]);
+  // const [isLoading, setIsLoading] = useState(false);
 
-      try {
-        const response = await fetch("https://dummyjson.com/products");
-        if (!response.ok) {
-          throw new Error("Failed to fetch products");
-        }
+  // useEffect(() => {
+  //   const fetchProductsData = async () => {
+  //     setIsLoading(true);
 
-        const data = await response.json();
-        if (!Array.isArray(data.products)) {
-          throw new Error(
-            "Invalid data format: expected 'products' to be an array"
-          );
-        }
+  //     try {
+  //       const response = await fetch("https://dummyjson.com/products");
+  //       if (!response.ok) {
+  //         throw new Error("Failed to fetch products");
+  //       }
 
-        setProducts(data.products);
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-        setIsLoading(false);
-      }
-    };
+  //       const data = await response.json();
+  //       if (!Array.isArray(data.products)) {
+  //         throw new Error(
+  //           "Invalid data format: expected 'products' to be an array"
+  //         );
+  //       }
 
-    fetchProductsData();
-  }, []);
+  //       setProducts(data.products);
+  //       setIsLoading(false);
+  //     } catch (error) {
+  //       console.error("Error fetching products:", error);
+  //       setIsLoading(false);
+  //     }
+  //   };
+
+  //   fetchProductsData();
+  // }, []);
+
+  // react query
 
   if (isLoading) {
     return <h3>Loading...</h3>;
+  }
+  if(error){
+    return <h3>Error: {error.message}</h3>
   }
 
   return (

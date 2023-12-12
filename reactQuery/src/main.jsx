@@ -6,6 +6,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Products from "./components/Products.jsx";
 import Product from "./components/Product.jsx";
 
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,10 +22,15 @@ const router = createBrowserRouter([
     element: <Product />,
   },
 ]);
+
+const queryClient = new QueryClient();
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router}>
-      <App />
-    </RouterProvider>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router}>
+        <App />
+      </RouterProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );
