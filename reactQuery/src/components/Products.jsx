@@ -8,11 +8,15 @@ const Products = () => {
     const data = await response.json();
     return data.products;
   };
+
+
   const {
     isLoading,
     error,
     data: products,
-  } = useQuery({ queryKey: ["products"], queryFn: fetchProductsData });
+  } = useQuery({ queryKey: ["products"], queryFn: fetchProductsData, 
+    staleTime:10000,
+});
 
   // const [products, setProducts] = useState([]);
   // const [isLoading, setIsLoading] = useState(false);

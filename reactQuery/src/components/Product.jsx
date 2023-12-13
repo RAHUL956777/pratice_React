@@ -1,11 +1,15 @@
-
+import { useParams } from "react-router-dom";
 
 const Product = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  const params = useParams();
 
-export default Product
+  const fecthProcuct = async()=>{
+    const response = await fecthProcuct(`https://dummyjson.com/products/${productId}`)
+    const data = await response.json();
+    return data;
+  }
+
+  return <div></div>;
+};
+
+export default Product;
