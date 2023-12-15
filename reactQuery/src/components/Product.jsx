@@ -8,8 +8,10 @@ const Product = () => {
   // mutation
   const mutation = useMutation({
     mutationFn: (newProduct) => {
-      const res = axios.put(`https://dummyjson.com/products/1`, newProduct);
-      return res;
+      return axios.put(
+        `https://dummyjson.com/products/${params.productId}`,
+        newProduct
+      );
     },
   });
 
@@ -42,14 +44,21 @@ const Product = () => {
     return <h3>Loading...</h3>;
   }
 
+  if (mutation.isLoading) {
+    return <h3>Updating...</h3>;
+  }
+  if (mutation.isError) {
+    return <h3>Error: {mutation.error.message}</h3>;
+  }
+
   return (
     <>
-      <div>{product.title}</div>;
+      <div>Product:{product.title}</div>;
       <button
         onClick={() => {
           mutation.mutate({ title: "Update Product" });
         }}
-      ></button>
+      >Create Product</button>
     </>
   );
 };
