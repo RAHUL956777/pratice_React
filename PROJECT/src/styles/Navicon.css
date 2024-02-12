@@ -1,0 +1,76 @@
+.naviconwrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 30vh;
+  width: 100%;
+  /* border: 1px solid blue; */
+}
+
+.naviconwrapper > .search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30%;
+  width: 70%;
+  /* border: 1px solid red; */
+}
+
+.naviconwrapper > .search > .line {
+  height: 80%;
+  width: 0.3%;
+  background-color: gray;
+  margin: 0 15px;
+}
+
+.naviconwrapper > .search > input {
+  font-size: 18px;
+  width: 60%;
+  height: 80%;
+  padding: 1rem;
+  border-radius: 15px;
+  background-color: rgba(194, 194, 194, 0.81);
+  color: white;
+  border: 1px solid gray;
+  outline: none;
+}
+
+.naviconwrapper > .search > button {
+  padding: 8px 18px;
+  font-size: 18px;
+  color: white;
+  background-color: #e83103;
+  border-radius: 20px;
+  border: 1px solid orangered;
+  cursor: pointer;
+}
+
+.naviconwrapper > .search > button:hover {
+  color: #e83103;
+  background-color: white;
+}
+
+.naviconwrapper > .navicons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60%;
+  width: 100%;
+  /* border: 1px solid green; */
+}
+
+.naviconwrapper > .navicons > .icondiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  cursor: pointer;
+  flex-wrap: wrap;
+}
+
+.naviconwrapper > .navicons > .icondiv > img {
+  height: 28px;
+  width: 20px;
+}

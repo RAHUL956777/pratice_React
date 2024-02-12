@@ -29,7 +29,7 @@ const Nav = () => {
           <a href={"/hotel-membership"}>HOTEL MEMBERSHIP</a>
           <a href={"/domestic-holidays"}>DOMESTIC HOLIDAYS</a>
           <a href={"/international-holidays"}>INTERNATIONAL HOLIDAYS</a>
-          <a href={"/hotel-packages"}>HOTEL PACKAgES</a>
+          <a href={"/hotel-packages"}>HOTEL PACKAGES</a>
           <a href={"/contact-us"}>CONTACT US</a>
         </div>
       </div>
