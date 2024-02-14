@@ -31,22 +31,29 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  color: rgba(237, 237, 237, 0.781);
+  color: rgb(252, 252, 252);
 }
 
-.card > .card-data > p {
+.card > .card-data > .cardupper {
   font-size: 1.3rem;
   padding: 1rem;
   font-weight: bold;
 }
 
-.card > .card-data > h2 {
+.card > .card-data > .cardbottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 3rem;
+}
+
+.card > .card-data > .cardbottom > h2 {
   font-size: 1.2rem;
-  padding-top: 4.5rem;
   padding-bottom: 0.5rem;
 }
 
-.card > .card-data > button {
+.card > .card-data > .cardbottom > button {
   padding: 8px 18px;
   border-radius: 20px;
   cursor: pointer;
@@ -57,7 +64,9 @@
   background-color: rgb(250, 136, 43);
 }
 
-.card > .card-data > button:hover {
+.card > .card-data > .cardbottom > button:hover {
   color: rgb(250, 136, 43);
   background-color: white;
 }
+
+
