@@ -1,0 +1,128 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 20vh;
+  width: 100vw;
+  flex-direction: row;
+  padding: 2px;
+  background-color: rgba(0, 0, 0, 0.86);
+}
+
+.logo {
+  height: 20vh;
+  width: 22vw;
+}
+
+.logo > img {
+  height: 100%;
+  width: 100%;
+}
+
+.nav > .nav-data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 70vw;
+}
+
+.nav > .nav-data > .nav-top {
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.nav > .nav-data > .nav-top > .nav-top-data > a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding-right: 2rem;
+}
+.nav > .nav-data > .nav-top > .nav-top-data > a :hover {
+  color: rgba(229, 229, 229, 0.763);
+}
+.nav > .nav-data > .nav-top > .nav-top-data > a > span:hover {
+  color: rgba(229, 229, 229, 0.763);
+}
+.nav > .nav-data > .nav-top > .nav-top-data > a > .icon {
+  padding-right: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.nav > .nav-data > .nav-top > .nav-top-data > button {
+  background-color: yellow;
+  border: 1px solid yellow;
+  color: black;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.nav > .nav-data > .nav-top > .nav-top-data > button:hover {
+  background-color: black;
+  color: yellow;
+}
+
+.nav > .nav-data > .nav-bottom {
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.nav > .nav-data > .nav-bottom > .nav-bottom-first {
+  height: 100%;
+  width: 85%;
+}
+
+.nav > .nav-data > .nav-bottom > .nav-bottom-first > ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  list-style: none;
+  color: white;
+  padding-top: 1rem;
+}
+
+.nav > .nav-data > .nav-bottom > .nav-bottom-first > ul > li > a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding-right: 2rem;
+}
+
+.nav > .nav-data > .nav-bottom > .nav-bottom-first > ul > li > a:hover {
+  color: rgba(229, 229, 229, 0.763);
+}
+
+.nav > .nav-data > .nav-bottom > .nav-bottom-last {
+  height: 100%;
+  width: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav > .nav-data > .nav-bottom > .nav-bottom-last > button {
+  background-color: rgb(5, 129, 237);
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 5px 14px;
+  border-radius: 10px;
+  color: white;
+}
+
+.nav > .nav-data > .nav-bottom > .nav-bottom-last > button:hover {
+  background-color: black;
+  color: rgb(5, 129, 237);
+}

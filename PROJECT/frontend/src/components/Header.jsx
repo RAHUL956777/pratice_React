@@ -1,6 +1,6 @@
 import Nav from "../pages/Nav";
 import Navicon from "../pages/Navicon";
-import Slider from "./Slider";
+// import Slider from "./Slider";
 
 const Header = () => {
 
@@ -8,7 +8,7 @@ const Header = () => {
     <>
       <Nav />
       <Navicon />
-      <Slider />
+      {/* <Slider /> */}
     </>
   );
 };
