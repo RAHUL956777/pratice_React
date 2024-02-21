@@ -1,22 +1,95 @@
-// import Card from "../components/Card";
-// import img1 from "../assets/images/img1.jpg";
-// // import "../styles/Home.css";
+import "../styles/Home.css";
+import {
+  partners1,
+  partners2,
+  partners3,
+  partners4,
+  partners5,
+  partners6,
+  partners7,
+  partners8,
+  partners9,
+  partners10,
+  partners11,
+  partners12,
+  partners13,
+  partners14,
+  partners15,
+  partners16,
+  partners17,
+  partners18,
+} from "../assets/partners/index.js";
 
+import CardScroller from "./CardScroller";
+const Home = () => {
+  return (
+    <div className="home">
+      <div className="cardslider">
+        <CardScroller details={"Trending Domestic Destination"} />
+        <CardScroller details={"Trending International Destination"} />
+      </div>
+      <div className="partners">
+        <h2>Our Partners</h2>
+        <div className="partnerimg">
+          <div className="img">
+            <img src={partners1} alt="partnears" />
+          </div>
+          <div className="img">
+            <img src={partners2} alt="partnears" />
+          </div>
+          <div className="img">
+            <img src={partners3} alt="partnears" />
+          </div>
+          <div className="img">
+            <img src={partners4} alt="partnears" />
+          </div>
+          <div className="img">
+            <img src={partners5} alt="partnears" />
+          </div>
+          <div className="img">
+            <img src={partners6} alt="partnears" />
+          </div>
+          <div className="img">
+            <img src={partners7} alt="partnears" />
+          </div>
+          <div className="img">
+            <img src={partners8} alt="partnears" />
+          </div>
+          <div className="img">
+            <img src={partners9} alt="partnears" />
+          </div>
+          <div className="img">
+            <img src={partners10} alt="partnears" />
+          </div>
+          <div className="img">
+            <img src={partners11} alt="partnears" />
+          </div>
+          <div className="img">
+            <img src={partners12} alt="partnears" />
+          </div>
+          <div className="img">
+            <img src={partners13} alt="partnears" />
+          </div>
+          <div className="img">
+            <img src={partners14} alt="partnears" />
+          </div>
+          <div className="img">
+            <img src={partners15} alt="partnears" />
+          </div>
+          <div className="img">
+            <img src={partners16} alt="partnears" />
+          </div>
+          <div className="img">
+            <img src={partners17} alt="partnears" />
+          </div>
+          <div className="img">
+            <img src={partners18} alt="partnears" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-// const Home = () => {
-//     const cardsData = [
-//       {
-//         img: img1,
-//         savings: "Save INR 30,000",
-//         description: "Echo Dot (3rd Gen) - Smart speaker with Alexa - Charcoal",
-//         price: "39.99"
-//       },
-//     ]
-//   return (
-//     <div className="home">
-//       <Card {...cardsData[0]} />
-//     </div>
-//   )
-// }
+export default Home;
 
-// export default Home

@@ -6,6 +6,9 @@
   width: 100vw;
   flex-direction: row;
   padding: 2px;
+  /* position: fixed;
+  top: 0;
+  z-index: 9; */
   background-color: rgba(0, 0, 0, 0.86);
 }
 
@@ -58,7 +61,7 @@
   background-color: yellow;
   border: 1px solid yellow;
   color: black;
-  font-size: 1.1rem;
+  font-size: 1rem;
   cursor: pointer;
   padding: 5px 10px;
   border-radius: 10px;
@@ -80,7 +83,7 @@
 
 .nav > .nav-data > .nav-bottom > .nav-bottom-first {
   height: 100%;
-  width: 85%;
+  width: 80%;
 }
 
 .nav > .nav-data > .nav-bottom > .nav-bottom-first > ul {
@@ -109,7 +112,7 @@
   width: 15%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .nav > .nav-data > .nav-bottom > .nav-bottom-last > button {
@@ -117,7 +120,7 @@
   border: none;
   font-size: 1.1rem;
   cursor: pointer;
-  padding: 5px 14px;
+  padding: 5px 10px;
   border-radius: 10px;
   color: white;
 }

@@ -5,7 +5,6 @@
   flex-direction: column;
   height: 30vh;
   width: 100%;
-  /* border: 1px solid blue; */
 }
 
 .naviconwrapper > .search {
@@ -14,7 +13,6 @@
   justify-content: center;
   height: 30%;
   width: 70%;
-  /* border: 1px solid red; */
 }
 
 .naviconwrapper > .search > .line {

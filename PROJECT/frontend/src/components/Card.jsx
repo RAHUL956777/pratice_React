@@ -27,7 +27,7 @@ const Card = ({ img, savings, destanition,details, price }) => {
 };
 
 Card.propTypes = {
-  img: PropTypes.object.isRequired,
+  img: PropTypes.string.isRequired,
   savings: PropTypes.string.isRequired,
   destanition: PropTypes.string.isRequired,
   details: PropTypes.string.isRequired,
