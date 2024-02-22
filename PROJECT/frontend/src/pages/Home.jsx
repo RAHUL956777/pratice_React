@@ -21,6 +21,7 @@ import {
 } from "../assets/partners/index.js";
 
 import CardScroller from "./CardScroller";
+import HappyTravelers from "./HappyTravelers.jsx";
 const Home = () => {
   return (
     <div className="home">
@@ -86,6 +87,9 @@ const Home = () => {
             <img src={partners18} alt="partnears" />
           </div>
         </div>
+      </div>
+      <div className="happytravelers">
+        <HappyTravelers />
       </div>
     </div>
   );

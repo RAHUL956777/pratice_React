@@ -1,0 +1,198 @@
+.travelerdetails {
+  height: 80vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.travelerdetails-first {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 20%;
+  width: 100%;
+}
+
+.travelerdetails > .travelerdetails-first > h1 {
+  color: rgba(37, 37, 37, 0.829);
+  font-size: 2.5rem;
+  padding-bottom: 1rem;
+}
+
+.travelerdetails-second {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20%;
+  width: 80%;
+  flex-wrap: wrap;
+}
+.travelerdetails-second > button {
+  cursor: pointer;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 20px;
+  border: 1px solid gray;
+  margin: 0.5rem;
+}
+
+.travelerdetails-second > .bg-lightskyblue {
+  background-color: rgba(6, 151, 142, 0.922);
+  color: white;
+}
+
+.travelerdetails-second > .lightskyblue {
+  color: rgb(47, 178, 244);
+  border: 2px solid rgb(47, 178, 244);
+}
+
+.travelerdetails-last {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60%;
+  width: 90%;
+}
+
+.travelerdetails-last-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 50%;
+}
+
+.travelerdetails-last-image > img {
+  height: 100%;
+  width: 48%;
+  padding: 0.5rem;
+}
+
+.travelerdetails-last-data {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+  padding: 2rem;
+}
+
+.travelerdetails-last-data > h2 {
+  font-size: 2rem;
+  color: rgba(6, 151, 142, 0.922);
+}
+
+.travelerdetails-last-data > .travelerdetails-last-data-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20%;
+  width: 100%;
+}
+
+.travelerdetails-last-data > .travelerdetails-last-data-button > button {
+  padding: 8px 10px;
+  border-radius: 20px;
+  border: 1px solid gray;
+  cursor: pointer;
+  margin: 0.2rem;
+}
+
+.travelerdetails-last-data > p {
+  font-size: 1.1rem;
+  color: rgba(37, 37, 37, 0.829);
+  padding: 1rem;
+}
+
+.travelerdetails-last-data > .travelerdetails-last-data-author {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 20%;
+  width: 100%;
+}
+
+.travelerdetails-last-data > .travelerdetails-last-data-author > .first {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  width: 50%;
+}
+
+.travelerdetails-last-data
+  > .travelerdetails-last-data-author
+  > .first
+  > .firstimg {
+  height: 100%;
+  width: 18%;
+  background-size: contain;
+  border-radius: 50%;
+}
+
+.travelerdetails-last-data
+  > .travelerdetails-last-data-author
+  > .first
+  > .firstimg
+  > img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.travelerdetails-last-data
+  > .travelerdetails-last-data-author
+  > .first
+  > .firstdata {
+  margin-left: 10px;
+}
+
+.travelerdetails-last-data > .travelerdetails-last-data-author > .second {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+}
+
+.travelerdetails-last-data
+  > .travelerdetails-last-data-author
+  > .second
+  > .second-stars
+  > .icons {
+  color: rgb(230, 161, 1);
+}
+
+.travelerdetails-last-data > .travelerdetails-last-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin-top: 1rem;
+}
+
+.travelerdetails-last-data > .travelerdetails-last-buttons > button {
+  padding: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin: 0.5rem;
+}
+
+.travelerdetails-last-data > .travelerdetails-last-buttons > #btn1 {
+  color: rgba(255, 109, 91, 255);
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.travelerdetails-last-data > .travelerdetails-last-buttons > #btn2 {
+  background-color: rgba(255, 109, 91, 255);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+}

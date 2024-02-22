@@ -1,11 +1,8 @@
 .home {
-  height: 200vh;
+  height: 250vh;
   width: 100vw;
-  border: 1px solid red;
   margin-top: 1rem;
 }
-
-
 
 .partners {
   height: 70vh;
@@ -15,11 +12,10 @@
   justify-content: center;
   margin-top: 2rem;
   flex-direction: column;
-  border: 1px solid blue;
   padding: 0 5rem;
 }
 
-.partners > .partnerimg{
+.partners > .partnerimg {
   height: 90%;
   width: 100%;
   display: flex;
@@ -28,15 +24,13 @@
   flex-wrap: wrap;
 }
 
-.partners > .partnerimg > .img{
+.partners > .partnerimg > .img {
   height: 8rem;
   width: 10rem;
   padding: 1rem;
-
 }
-.partners > .partnerimg > .img > img{
+.partners > .partnerimg > .img > img {
   height: 100%;
   width: 100%;
   object-fit: contain;
 }
-
