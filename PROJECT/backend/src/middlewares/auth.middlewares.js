@@ -29,3 +29,16 @@ export const verifyJWT = asyncHandler(async (req, _, next) => {
     throw new ApiError(401, "Invalid Access Token");
   }
 });
+
+export const adminOnly = asyncHandler(async (req, res, next) => {
+  const { id } = req.query;
+
+  if (!id) return next(new ApiError("Please login to access this", 401));
+
+  const user = await User.findById(id);
+  if (!user) return next(new ApiError("Id didn't matched", 401));
+  if (user.role !== "admin")
+    return next(new ApiError("This is for admin only", 403));
+
+  next();
+});
