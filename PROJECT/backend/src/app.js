@@ -28,10 +28,14 @@ app.use(cookieParser());
 
 // ====== *****  routes  **** =======
 import userRouter from "./routes/user.routes.js";
+import tripRouter from "./routes/trip.routes.js"
 
 
-// routes declaration (middleware declaration)
+// routes declaration for user (middleware declaration)
 app.use("/api/v1/users", userRouter)
+
+// routes declaration for trip (middleware declaration)
+app.use("/api/v1/trips", tripRouter)
 
 
 export { app };

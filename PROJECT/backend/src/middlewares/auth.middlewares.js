@@ -33,12 +33,12 @@ export const verifyJWT = asyncHandler(async (req, _, next) => {
 export const adminOnly = asyncHandler(async (req, res, next) => {
   const { id } = req.query;
 
-  if (!id) return next(new ApiError("Please login to access this", 401));
+  if (!id) return next(new ApiError(401, "Please login to access this"));
 
   const user = await User.findById(id);
-  if (!user) return next(new ApiError("Id didn't matched", 401));
+  if (!user) return next(new ApiError(401, "Id didn't matched"));
   if (user.role !== "admin")
-    return next(new ApiError("This is for admin only", 403));
+    return next(new ApiError(403, "This is for admin only"));
 
   next();
 });
