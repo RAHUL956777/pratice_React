@@ -1,0 +1,42 @@
+.happy {
+  font-size: 50px;
+  font-weight: 900;
+}
+.review-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.review {
+  border: 20px solid blue;
+  padding: 50px;
+  padding-left: 20px;
+  height: 200px;
+  width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-left: 20px; /* Adjusted to create space between reviews */
+}
+
+.review1,
+.review2,
+.review3,
+.review4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px; /* Adjusted for responsiveness */
+  height: 250px;
+  color: black;
+  background-image: url(C:\Users\Rahul\OneDrive\Desktop\Web_Development\InfinitiveHolidays\infinitive\src\logo1.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  border: 10px solid black;
+}
+
+.review + .review {
+  margin-left: 40px; /* Adjusted to create space between reviews */
+}

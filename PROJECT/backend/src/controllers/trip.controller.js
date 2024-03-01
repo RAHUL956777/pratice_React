@@ -6,7 +6,9 @@ import { ApiError } from "../utils/ApiError.js";
 const createTrip = asyncHandler(async (req, res) => {
   const { location, price, saveprice } = req.body;
 
-  if (!location && !price && !saveprice) {
+  console.log(location, price, saveprice,req.body);
+
+  if (location == undefined || price == undefined || saveprice == undefined) {
     throw new ApiError(400, "All fields are required");
   }
 

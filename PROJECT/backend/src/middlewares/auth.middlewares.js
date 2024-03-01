@@ -32,6 +32,7 @@ export const verifyJWT = asyncHandler(async (req, _, next) => {
 
 export const adminOnly = asyncHandler(async (req, res, next) => {
   const { id } = req.query;
+  
 
   if (!id) return next(new ApiError(401, "Please login to access this"));
 

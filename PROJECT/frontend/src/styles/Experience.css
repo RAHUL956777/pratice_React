@@ -1,0 +1,51 @@
+.title {
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; /* Center the title horizontally */
+}
+
+h4 {
+  font-size: 1.25rem; /* Adjusted for responsiveness */
+  color: black;
+  text-align: center;
+  margin-top: 100px; /* Adjusted for a smaller margin */
+  font-weight: 700;
+}
+
+h5 {
+  color: black;
+  width: 100%; /* Adjusted for responsiveness */
+  margin-left: 10px; /* Adjusted for responsiveness */
+  text-align: center;
+}
+
+#contain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  transition: flex-wrap 0.5s ease;
+  margin-top: 40px; /* Adjusted for a smaller margin */
+  margin-bottom: 40px; /* Adjusted for a smaller margin */
+}
+
+.elements {
+  width: 100%; /* Adjusted for responsiveness */
+  max-width: 400px; /* Adjusted for responsiveness */
+  height: 200px;
+  cursor: pointer;
+  transition: 0.5s all;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px; /* Adjusted for responsiveness */
+  margin-top: 10px;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 900px) {
+  .elements {
+    margin-right: 0;
+  }
+}

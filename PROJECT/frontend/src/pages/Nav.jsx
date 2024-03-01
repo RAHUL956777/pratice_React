@@ -3,6 +3,7 @@ import { IoMdMail } from "react-icons/io";
 import { IoLogoWhatsapp } from "react-icons/io";
 import "../styles/Nav.css";
 import logo from "../../src/assets/logo.png";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
@@ -38,10 +39,10 @@ const Nav = () => {
           <div className="nav-bottom-first">
             <ul>
               <li>
-                <a href="">Home</a>
+                <Link to={"/"}>Home</Link>
               </li>
               <li>
-                <a href="">Hotel Membership</a>
+                <Link to="/hotel">Hotel Membership</Link>
               </li>
               <li>
                 <a href="">Resorts</a>
@@ -50,7 +51,9 @@ const Nav = () => {
                 <a href="">Domestic Holidays</a>
               </li>
               <li>
-                <a href="">International Holidays</a>
+                <Link to={"/international-holiday"}>
+                  International Holidays
+                </Link>
               </li>
               <li>
                 <a href="">Get Quote</a>
