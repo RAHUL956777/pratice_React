@@ -11,23 +11,21 @@ app.use(
     credentials: true,
   })
 );
-
 app.use(
   express.json({
+    limit: "10mb",
     extended: true,
   })
 );
-
 app.use(
   express.urlencoded({
     extended: true,
+    limit: "10mb",
   })
 );
 
 app.use(express.static("public"));
 app.use(cookieParser());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 // ====== *****  routes  **** =======
 import userRouter from "./routes/user.routes.js";
