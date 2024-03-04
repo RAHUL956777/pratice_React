@@ -41,7 +41,7 @@ const createTrip = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, newTrip, "New Trip created sucessfully"));
 });
 
-const getAllTrip = asyncHandler(async (_, res) => {
+const getAllTrips = asyncHandler(async (_, res) => {
   const trips = await Trip.find();
 
   if (!trips || trips.length === 0) {
@@ -112,4 +112,27 @@ const deleteTrip = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, "Trip deleted successfully"));
 });
 
-export { createTrip, getAllTrip, updateTrip, deleteTrip };
+const getTrip = asyncHandler(async (req, res) => {
+  let sortBy = req.query.sortBy || "location"; // Default to sorting by location if sortBy is not provided
+  let sortOrder = req.query.sortOrder || "asc"; // Default to ascending order if sortOrder is not provided
+
+  // Validate sortOrder
+  if (!["asc", "desc"].includes(sortOrder.toLowerCase())) {
+    throw new ApiError(400, "Invalid sortOrder. Use 'asc' or 'desc'.");
+  }
+
+  // Validate sortBy (you might want to customize this based on your model fields)
+  const validSortFields = ["location", "price", "saveprice"];
+  if (!validSortFields.includes(sortBy.toLowerCase())) {
+    throw new ApiError(400, "Invalid sortBy field.");
+  }
+
+  // Sort the trips based on the provided parameters
+  const trips = await Trip.find().sort({ [sortBy]: sortOrder });
+
+  return res
+    .status(200)
+    .json(new ApiResponse(200, trips, "Trips retrieved successfully"));
+});
+
+export { createTrip, getAllTrips, updateTrip, deleteTrip, getTrip };

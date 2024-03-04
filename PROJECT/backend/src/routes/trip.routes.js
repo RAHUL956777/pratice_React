@@ -2,7 +2,8 @@ import { Router } from "express";
 import {
   createTrip,
   deleteTrip,
-  getAllTrip,
+  getAllTrips,
+  getTrip,
   updateTrip,
 } from "../controllers/trip.controller.js";
 import { upload } from "../middlewares/multer.middleware.js";
@@ -12,12 +13,14 @@ const router = Router();
 
 router
   .route("/newtrip")
-  .post(upload.fields([{ name: "image", maxCount: 1 }]), createTrip);
+  .post(upload.fields([{ name: "image", maxCount: 1 }]), adminOnly, createTrip);
 
-router.get("/all-trips", getAllTrip);
+router.get("/all-trips", adminOnly, getAllTrips);
 
-router.put("/update-trips/:id", upload.any(), updateTrip);
+router.get("/get-trip", adminOnly, getTrip);
 
-router.delete("/delete-trip/:id", deleteTrip);
+router.put("/update-trips/:id", upload.any(), adminOnly, updateTrip);
+
+router.delete("/delete-trip/:id", adminOnly, deleteTrip);
 
 export default router;
