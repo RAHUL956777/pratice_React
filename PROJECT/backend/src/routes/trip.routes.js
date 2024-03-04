@@ -3,7 +3,7 @@ import {
   createTrip,
   deleteTrip,
   getAllTrips,
-  getTrip,
+  searchTrips,
   updateTrip,
 } from "../controllers/trip.controller.js";
 import { upload } from "../middlewares/multer.middleware.js";
@@ -13,14 +13,14 @@ const router = Router();
 
 router
   .route("/newtrip")
-  .post(upload.fields([{ name: "image", maxCount: 1 }]), adminOnly, createTrip);
+  .post(upload.fields([{ name: "image", maxCount: 1 }]), createTrip);
 
-router.get("/all-trips", adminOnly, getAllTrips);
+router.get("/all-trips", getAllTrips);
 
-router.get("/get-trip", adminOnly, getTrip);
+router.put("/update-trips/:id", upload.any(), updateTrip);
 
-router.put("/update-trips/:id", upload.any(), adminOnly, updateTrip);
+router.delete("/delete-trip/:id", deleteTrip);
 
-router.delete("/delete-trip/:id", adminOnly, deleteTrip);
+router.get("/search", searchTrips);
 
 export default router;

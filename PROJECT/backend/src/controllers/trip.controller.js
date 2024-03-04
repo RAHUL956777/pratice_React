@@ -7,8 +7,6 @@ import { ApiResponse } from "../utils/ApiResponce.js";
 const createTrip = asyncHandler(async (req, res) => {
   const { location, price, saveprice } = req.body;
 
-  console.log(location, price, saveprice, req.body);
-
   if (!location || !price || !saveprice) {
     throw new ApiError(400, "All fields are required");
   }
@@ -112,27 +110,24 @@ const deleteTrip = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, "Trip deleted successfully"));
 });
 
-const getTrip = asyncHandler(async (req, res) => {
-  let sortBy = req.query.sortBy || "location"; // Default to sorting by location if sortBy is not provided
-  let sortOrder = req.query.sortOrder || "asc"; // Default to ascending order if sortOrder is not provided
+const searchTrips = asyncHandler(async (req, res) => {
+  const { location, price } = req.query;
 
-  // Validate sortOrder
-  if (!["asc", "desc"].includes(sortOrder.toLowerCase())) {
-    throw new ApiError(400, "Invalid sortOrder. Use 'asc' or 'desc'.");
+  // Check if the query parameter is provided
+  if (!location) {
+    throw new ApiError(400, "Search query is required.");
   }
 
-  // Validate sortBy (you might want to customize this based on your model fields)
-  const validSortFields = ["location", "price", "saveprice"];
-  if (!validSortFields.includes(sortBy.toLowerCase())) {
-    throw new ApiError(400, "Invalid sortBy field.");
-  }
-
-  // Sort the trips based on the provided parameters
-  const trips = await Trip.find().sort({ [sortBy]: sortOrder });
+  // Use Mongoose find to search for trips based on the query parameter
+  const trips = await Trip.find({
+    $or: [
+      { location: { $regex: location, $options: "i" } }, // Case-insensitive search for location
+    ],
+  });
 
   return res
     .status(200)
     .json(new ApiResponse(200, trips, "Trips retrieved successfully"));
 });
 
-export { createTrip, getAllTrips, updateTrip, deleteTrip, getTrip };
+export { createTrip, getAllTrips, updateTrip, deleteTrip, searchTrips };
