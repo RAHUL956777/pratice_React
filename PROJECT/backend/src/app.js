@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import bodyParser from "body-parser";
+
 
 const app = express();
 
@@ -30,11 +30,15 @@ app.use(cookieParser());
 // ====== *****  routes  **** =======
 import userRouter from "./routes/user.routes.js";
 import tripRouter from "./routes/trip.routes.js";
+import ratingRouter from "./routes/rating.routes.js"
 
 // routes declaration for user (middleware declaration)
 app.use("/api/v1/users", userRouter);
 
 // routes declaration for trip (middleware declaration)
 app.use("/api/v1/trips", tripRouter);
+
+//routes for rating
+app.use("/api/v1/ratings", ratingRouter);
 
 export { app };
