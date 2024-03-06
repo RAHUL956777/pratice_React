@@ -4,6 +4,6 @@ import {verifyJWT} from "../middlewares/auth.middlewares.js"
 
 const router = Router();
 
-router.post("/create-rating",verifyJWT, createRating);
+router.post("/create-rating/:id",verifyJWT, createRating);
 
 export default router;

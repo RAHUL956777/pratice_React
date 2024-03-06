@@ -5,16 +5,13 @@ const ratingSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
-    required: true,
   },
   trip: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Trip",
-    required: true,
   },
   stars: {
-    type: Number,
-    required: true,
+    type: String,
     min: 1,
     max: 5,
   },

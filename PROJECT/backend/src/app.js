@@ -2,6 +2,9 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
+import userRouter from "./routes/user.routes.js";
+import tripRouter from "./routes/trip.routes.js";
+import ratingRouter from "./routes/rating.routes.js";
 
 const app = express();
 
@@ -28,9 +31,6 @@ app.use(express.static("public"));
 app.use(cookieParser());
 
 // ====== *****  routes  **** =======
-import userRouter from "./routes/user.routes.js";
-import tripRouter from "./routes/trip.routes.js";
-import ratingRouter from "./routes/rating.routes.js"
 
 // routes declaration for user (middleware declaration)
 app.use("/api/v1/users", userRouter);
