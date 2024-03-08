@@ -11,6 +11,8 @@ import {
 import Home from "./pages/Home.jsx";
 import Internatinal from "./pages/International.jsx";
 import India from "./pages/India.jsx";
+import { ApiProvider } from "@reduxjs/toolkit/query/react";
+import { TripApi } from "./redux/api.js";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,6 +26,8 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ApiProvider api={TripApi}>
+      <RouterProvider router={router} />
+    </ApiProvider>
   </React.StrictMode>
 );
