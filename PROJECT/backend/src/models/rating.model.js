@@ -18,11 +18,6 @@ const ratingSchema = new mongoose.Schema({
   description: {
     type: String,
   },
-  type: {
-    type: String,
-    enum: ["domestic", "international"],
-    required: true,
-  },
   createdAt: {
     type: Date,
     default: Date.now,
@@ -30,3 +25,5 @@ const ratingSchema = new mongoose.Schema({
 });
 
 export const Rating = mongoose.model("Rating", ratingSchema);
+
+

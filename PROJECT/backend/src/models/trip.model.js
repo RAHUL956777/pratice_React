@@ -13,6 +13,11 @@ const tripSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  type: {
+    type: String,
+    enum: ["domestic", "international"],
+    required: true,
+  },
   image: {
     type: String, //cloudinary url
     required: true,
