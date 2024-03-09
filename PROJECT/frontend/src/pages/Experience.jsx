@@ -4,9 +4,9 @@ function Experience() {
   return (
     <>
       <div className="title">
-        <h4>Experience with us</h4>
+        <h4 className="h4">Experience with us</h4>
         <br />
-        <h5>
+        <h5 className="h5">
           Access 125+ resorts across India and the world, where a universe of
           experiences opens up for you. Relax by the beach in Goa. Stay in an
           igloo in Manali. Watch the Northern Lights put up a spectacular show

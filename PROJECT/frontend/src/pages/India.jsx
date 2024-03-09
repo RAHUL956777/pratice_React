@@ -3,8 +3,8 @@ import "../styles/India.css"
 function India() {
   return (
     <>
-      <h2>Indian Destinations</h2>
-      <h3>1750+ resorts</h3>
+      <h2 className="h2">Indian Destinations</h2>
+      <h3 className="h3">1750+ resorts</h3>
 
       <div id="container">
         <div id="first" className="element">

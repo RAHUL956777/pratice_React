@@ -2,22 +2,22 @@ import PropTypes from "prop-types";
 import "../styles/Card.css";
 import { GoTag } from "react-icons/go";
 
-const Card = ({ img, savings, destanition,details, price }) => {
+const Card = ({ image, location,price,saveprice }) => {
   return (
     <div className="card">
       <div className="cardimg">
-        <img src={img} alt="image" />
+        <img src={image} alt="image" />
       </div>
       <div className="cardinfo">
         <div className="cardtop">
           <GoTag className="tag" />
 
-          <span>{savings}</span>
+          <span>Save INR {saveprice}</span>
         </div>
         <div className="cardbottom">
-          <h2>{destanition}</h2>
+          <h2>{location}</h2>
           <p className="cardprice">
-            <span>{details}</span>
+            <span>Starting Price</span>
             <strong>{price}</strong>
           </p>
         </div>

@@ -5,10 +5,14 @@ import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponce.js";
 
 const createTrip = asyncHandler(async (req, res) => {
-  const { location, price, saveprice } = req.body;
+  const { location, price, saveprice,type } = req.body;
 
-  if (!location || !price || !saveprice) {
+  if (!location || !price || !saveprice || !type) {
     throw new ApiError(400, "All fields are required");
+  }
+
+  if (!type || !["domestic", "international"].includes(type)) {
+    return res.status(400).json({ success: false, message: "Invalid trip type" });
   }
 
   const imageLocalPath = req.files?.image[0]?.path;
@@ -24,6 +28,7 @@ const createTrip = asyncHandler(async (req, res) => {
   }
 
   const newTrip = await Trip.create({
+    type,
     location,
     price,
     image: image.url,
