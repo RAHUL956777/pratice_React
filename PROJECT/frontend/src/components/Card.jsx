@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import "../styles/Card.css";
 import { GoTag } from "react-icons/go";
 
-const Card = ({ image, location,price,saveprice }) => {
+const Card = ({ image, location, price, saveprice }) => {
   return (
     <div className="card">
       <div className="cardimg">
@@ -27,10 +27,10 @@ const Card = ({ image, location,price,saveprice }) => {
 };
 
 Card.propTypes = {
-  img: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
   savings: PropTypes.string.isRequired,
-  destanition: PropTypes.string.isRequired,
-  details: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  saveprice: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
 };
 

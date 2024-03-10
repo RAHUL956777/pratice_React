@@ -20,14 +20,19 @@ import {
   partners18,
 } from "../assets/partners/index.js";
 
-import CardScroller from "./CardScroller";
 import HappyTravelers from "./HappyTravelers.jsx";
+import DomesicTrip from "./DomesicTrip.jsx";
+import InternationalTrip from "./InternationalTrip.jsx";
 const Home = () => {
   return (
     <div className="home">
       <div className="cardslider">
-        <CardScroller details={"Trending Domestic Destination"} />
-        <CardScroller details={"Trending International Destination"} />
+        <div className="cardslide">
+        <DomesicTrip />
+        </div>
+        <div className="cardslide">
+        <InternationalTrip />
+        </div>
       </div>
       <div className="partners">
         <h2>Our Partners</h2>

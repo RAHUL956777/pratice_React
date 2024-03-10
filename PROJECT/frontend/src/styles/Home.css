@@ -4,6 +4,24 @@
   margin-top: 1rem;
   margin-bottom: 5rem;
 }
+.home>.cardslider{
+  border: 1px solid blue;
+  height: 90vh;
+  width: 80vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.home>.cardslider > .cardslide{
+  height: 45vh;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 
 .partners {
   height: 70vh;
