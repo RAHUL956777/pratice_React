@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
 import axios from "axios";
+import "../styles/Trips.css";
 
 const InternationalTrip = () => {
   const [internationalTrip, setInterNationalTrip] = useState([]);
@@ -25,7 +26,7 @@ const InternationalTrip = () => {
     fetchAllTrips();
   }, []);
   return (
-    <div>
+    <div className="trips">
       {internationalTrip.map((trip) => (
         <Card
           key={trip.id}

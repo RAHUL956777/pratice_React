@@ -28,9 +28,11 @@ const Home = () => {
     <div className="home">
       <div className="cardslider">
         <div className="cardslide">
+          <h3>Trending Domestic Destination</h3>
         <DomesicTrip />
         </div>
         <div className="cardslide">
+        <h3>Trending International Destination</h3>
         <InternationalTrip />
         </div>
       </div>
