@@ -5,6 +5,7 @@ import "../styles/Trips.css";
 
 const DomesicTrip = () => {
   const [domesticTrips, setDomesticTrips] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchAllTrips = async () => {
@@ -22,6 +23,8 @@ const DomesicTrip = () => {
         setDomesticTrips(domesticTripsData);
       } catch (error) {
         console.error("Error fetching all trips:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -29,15 +32,19 @@ const DomesicTrip = () => {
   }, []);
   return (
     <div className="trips">
-      {domesticTrips.map((trip) => (
-        <Card
-          key={trip.id}
-          image={trip.image}
-          location={trip.location}
-          price={trip.price}
-          saveprice={trip.saveprice}
-        />
-      ))}
+      {loading ? (
+        <h1>Loading...</h1>
+      ) : (
+        domesticTrips.map((trip) => (
+          <Card
+            key={trip.id}
+            image={trip.image}
+            location={trip.location}
+            price={trip.price}
+            saveprice={trip.saveprice}
+          />
+        ))
+      )}
     </div>
   );
 };

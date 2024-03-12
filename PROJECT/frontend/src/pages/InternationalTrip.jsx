@@ -5,6 +5,7 @@ import "../styles/Trips.css";
 
 const InternationalTrip = () => {
   const [internationalTrip, setInterNationalTrip] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchAllTrips = async () => {
@@ -20,6 +21,8 @@ const InternationalTrip = () => {
         setInterNationalTrip(internationalTrip);
       } catch (error) {
         console.error("Error fetching all trips:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -27,15 +30,19 @@ const InternationalTrip = () => {
   }, []);
   return (
     <div className="trips">
-      {internationalTrip.map((trip) => (
-        <Card
-          key={trip.id}
-          image={trip.image}
-          location={trip.location}
-          price={trip.price}
-          saveprice={trip.saveprice}
-        />
-      ))}
+      {loading ? (
+        <h1>Loading...</h1>
+      ) : (
+        internationalTrip.map((trip) => (
+          <Card
+            key={trip.id}
+            image={trip.image}
+            location={trip.location}
+            price={trip.price}
+            saveprice={trip.saveprice}
+          />
+        ))
+      )}
     </div>
   );
 };

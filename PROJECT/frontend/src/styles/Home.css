@@ -4,21 +4,59 @@
   margin-top: 1rem;
   margin-bottom: 5rem;
 }
-.home>.cardslider{
-  /* border: 1px solid blue; */
+.home > .cardslider {
   height: 95vh;
-  width: 90vw;
+  width: 100vw;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.home > .cardslider > .data {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.home>.cardslider > .cardslide{
+.home > .cardslider > .data > .cardslide {
   height: auto;
   width: 100%;
+  /* border: 1px solid green; */
 }
 
-.home>.cardslider > .cardslide > h3{
+.home > .cardslider > .data > .cardslide > h3 {
   padding: 0.5rem 0 0.5rem 1rem;
   font-size: 1.5rem;
   color: rgb(46, 46, 46);
+}
+
+.home > .cardslider > .btnwrapper {
+  height: 80%;
+  width: 15%;
+  /* border: 1px solid yellow; */
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.home > .cardslider > .btnwrapper > .btndiv {
+  height: 3rem;
+  width: 3rem;
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 30%;
+}
+.home > .cardslider > .btnwrapper > .btndiv > .btn {
+  height: 100%;
+  width: 100%;
 }
 
 .partners {
