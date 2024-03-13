@@ -24,38 +24,10 @@ import { LiaGreaterThanSolid } from "react-icons/lia";
 import HappyTravelers from "./HappyTravelers.jsx";
 import DomesicTrip from "./DomesicTrip.jsx";
 import InternationalTrip from "./InternationalTrip.jsx";
-import { useEffect, useState } from "react";
-import axios from "axios";
+
+
 const Home = () => {
-  // const [domesticTrips, setDomesticTrips] = useState([]);
-  // const [internationalTrips, setInternationalTrips] = useState([]);
-  // const [domesticPage, setDomesticPage] = useState(1);
-  // const [internationalPage, setInternationalPage] = useState(1);
 
-  // useEffect(() => {
-  //   const fetchAllTrips = async () => {
-  //     try {
-  //       const response = await axios.get(
-  //         `http://localhost:8000/api/v1/trips/all-trips`
-  //       );
-  //       const allTripsData = response.data.message;
-
-  //       const domesticTripsData = allTripsData.filter(
-  //         (trip) => trip.type === "domestic"
-  //       );
-
-  //       const internationalTripsData = allTripsData.filter(
-  //         (trip) => trip.type === "international"
-  //       );
-
-  //       setDomesticTrips(domesticTripsData);
-  //       setInternationalTrips(internationalTripsData);
-  //     } catch (error) {
-  //       console.error("Error fetching trips:", error);
-  //     }
-  //   };
-  //   fetchAllTrips();
-  // }, []);
 
   return (
     <div className="home">
@@ -74,13 +46,13 @@ const Home = () => {
           <div className="btndiv">
             <LiaGreaterThanSolid
               className="btn"
-              // onClick={() => setDomesticPage((prevPage) => prevPage + 1)}
+              // onClick={() => handleLoadMore()}
             />
           </div>
           <div className="btndiv">
             <LiaGreaterThanSolid
               className="btn"
-              // onClick={() => setInternationalPage((prevPage) => prevPage + 1)}
+              // onClick={() => handleLoadMore()}
             />
           </div>
         </div>

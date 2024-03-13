@@ -12,13 +12,13 @@ const Card = ({ image, location, price, saveprice }) => {
         <div className="cardtop">
           <GoTag className="tag" />
 
-          <span>Save INR {saveprice}</span>
+          <span>Save INR ₹{saveprice}</span>
         </div>
         <div className="cardbottom">
           <h2>{location}</h2>
           <p className="cardprice">
             <span>Starting Price</span>
-            <strong>{price}</strong>
+            <strong>₹{price}</strong>
           </p>
         </div>
       </div>
