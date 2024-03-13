@@ -20,14 +20,41 @@ import {
   partners18,
 } from "../assets/partners/index.js";
 import { LiaGreaterThanSolid } from "react-icons/lia";
-
+import axios from "axios";
 import HappyTravelers from "./HappyTravelers.jsx";
-import DomesicTrip from "./DomesicTrip.jsx";
-import InternationalTrip from "./InternationalTrip.jsx";
-
+import { useEffect, useState } from "react";
+import Card from "../components/Card.jsx";
 
 const Home = () => {
+  const [domesticTrips, setDomesticTrips] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [internationalTrips, setInternationalTrips] = useState([]);
 
+  useEffect(() => {
+    const fetchAllTrips = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:8000/api/v1/trips/all-trips"
+        );
+        const allTripsData = response.data.message;
+
+        // Use Promise.all to wait for both filters to complete
+        const [domesticTripsData, internationalTripsData] = await Promise.all([
+          allTripsData.filter((trip) => trip.type === "domestic"),
+          allTripsData.filter((trip) => trip.type === "international"),
+        ]);
+
+        setDomesticTrips(domesticTripsData);
+        setInternationalTrips(internationalTripsData);
+      } catch (error) {
+        console.error("Error fetching all trips:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAllTrips();
+  }, []);
 
   return (
     <div className="home">
@@ -35,11 +62,39 @@ const Home = () => {
         <div className="data">
           <div className="cardslide">
             <h3>Trending Domestic Destination</h3>
-            <DomesicTrip />
+            <div className="tripdata">
+              {loading ? (
+                <h1>Loading...</h1>
+              ) : (
+                domesticTrips?.map((trip) => (
+                  <Card
+                    key={trip.id}
+                    image={trip.image}
+                    location={trip.location}
+                    price={trip.price}
+                    saveprice={trip.saveprice}
+                  />
+                ))
+              )}
+            </div>
           </div>
           <div className="cardslide">
             <h3>Trending International Destination</h3>
-            <InternationalTrip />
+            <div className="tripdata">
+              {loading ? (
+                <h1>loading...</h1>
+              ) : (
+                internationalTrips?.map((trip) => (
+                  <Card
+                    key={trip.id}
+                    image={trip.image}
+                    location={trip.location}
+                    price={trip.price}
+                    saveprice={trip.saveprice}
+                  />
+                ))
+              )}
+            </div>
           </div>
         </div>
         <div className=" btnwrapper">

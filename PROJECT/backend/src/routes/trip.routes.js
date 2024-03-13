@@ -3,6 +3,7 @@ import {
   createTrip,
   deleteTrip,
   getAllTrips,
+  getPaginatedTrips,
   searchTrips,
   updateTrip,
 } from "../controllers/trip.controller.js";
@@ -22,5 +23,7 @@ router.put("/update-trips/:id", upload.any(), updateTrip);
 router.delete("/delete-trip/:id", deleteTrip);
 
 router.get("/search", searchTrips);
+
+router.get("/paginated-trips", getPaginatedTrips);
 
 export default router;

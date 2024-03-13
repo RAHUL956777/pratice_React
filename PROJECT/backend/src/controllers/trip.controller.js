@@ -137,4 +137,18 @@ const searchTrips = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, trips, "Trips retrieved successfully"));
 });
 
-export { createTrip, getAllTrips, updateTrip, deleteTrip, searchTrips };
+const getPaginatedTrips = asyncHandler(async (req, res) => {
+  const { limit = 4, skip = 0 } = req.query;
+
+  const trips = await Trip.find().skip(parseInt(skip)).limit(parseInt(limit));
+
+  if (!trips || trips.length === 0) {
+    throw new ApiError(404, "No Trips Found");
+  }
+
+  return res
+    .status(200)
+    .json(new ApiResponse(200, trips, "Trips retrieved successfully"));
+});
+
+export { createTrip, getAllTrips, updateTrip, deleteTrip, searchTrips,getPaginatedTrips };
