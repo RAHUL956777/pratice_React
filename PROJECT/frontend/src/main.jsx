@@ -13,6 +13,7 @@ import Internatinal from "./pages/International.jsx";
 import India from "./pages/India.jsx";
 import { ApiProvider } from "@reduxjs/toolkit/query/react";
 import { TripApi } from "./redux/api.js";
+import Login from "./components/Login.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +21,8 @@ const router = createBrowserRouter(
       <Route path="" element={<Home />} />
       <Route path="/international-holiday" element={<Internatinal />} />
       <Route path="/hotel" element={<India />} />
+      <Route path="/login" element={<Login />} />
+
     </Route>
   )
 );
