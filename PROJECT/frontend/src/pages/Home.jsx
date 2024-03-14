@@ -29,7 +29,7 @@ const Home = () => {
   const [domesticTrips, setDomesticTrips] = useState([]);
   const [loading, setLoading] = useState(true);
   const [internationalTrips, setInternationalTrips] = useState([]);
-
+ 
   useEffect(() => {
     const fetchAllTrips = async () => {
       try {
