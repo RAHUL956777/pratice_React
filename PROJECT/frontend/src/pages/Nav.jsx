@@ -32,7 +32,7 @@ const Nav = () => {
             </a>
           </div>
           <div className="nav-top-data">
-            <button>Login</button>
+            <Link to={"/login"} className="login">Login</Link>
           </div>
         </div>
         <div className="nav-bottom">

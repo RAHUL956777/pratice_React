@@ -57,7 +57,7 @@
   font-size: 1.5rem;
 }
 
-.nav > .nav-data > .nav-top > .nav-top-data > button {
+.nav > .nav-data > .nav-top > .nav-top-data > .login {
   background-color: yellow;
   border: 1px solid yellow;
   color: black;
@@ -67,7 +67,7 @@
   border-radius: 10px;
 }
 
-.nav > .nav-data > .nav-top > .nav-top-data > button:hover {
+.nav > .nav-data > .nav-top > .nav-top-data > .login:hover {
   background-color: black;
   color: yellow;
 }

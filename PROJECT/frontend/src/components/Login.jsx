@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { authSlice } from "../features/authSlice";
 import axios from "axios";
+import "../styles/Login.css";
 
 const { loginStart, loginSuccess, loginFailure } = authSlice.actions;
 
@@ -30,13 +31,27 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
-      <h2>Login Now</h2>
-      <form onSubmit={handleLogin}>
-        <input type="email" name="username" placeholder="Username" />
-        <input type="password" name="password" placeholder="Password" />
-        <button type="submit">Login</button>
-      </form>
+    <div className="loginwrapper">
+      <div className="login">
+        <h2>Login Now</h2>
+        <form onSubmit={handleLogin} className="login-form">
+          <input
+            type="email"
+            name="username"
+            placeholder="Username"
+            className="login-input"
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            className="login-input"
+          />
+          <button type="submit" className="login-button">
+            Login
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
