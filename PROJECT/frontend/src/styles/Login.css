@@ -2,14 +2,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  height: 100vh;
+  width: 100vw;
+  background-color: antiquewhite;
 }
 
 .login {
   background-color: #f0f0f0;
-  padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 56vh;
+  width: 23vw;
+  padding: 1rem;
 }
 
 .login h2 {
@@ -20,24 +24,58 @@
 .login-form {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  /* border: 1px solid green; */
+  height: 90%;
 }
 
-.login-input {
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
+.login-form > .form-group {
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-evenly;
+  flex-direction: column;
+  height: 33%;
+  width: 100%;
+  /* border: 1px solid red; */
+}
+
+.login-form > .form-group > label {
+  font-size: 1.5rem;
+}
+
+.login-form > .form-group > .input_username > input {
+  width: 100%;
+  padding: 0.3rem;
   border-radius: 4px;
+  border: 1px solid #ced4da;
+  font-size: 1.2rem;
+  outline: none;
+}
+.login-form > .form-group > .input_password > input {
+  width: 80%;
+  padding: 0.3rem;
+  border-radius: 4px;
+  border: 1px solid #ced4da;
+  font-size: 1.2rem;
+  outline: none;
+}
+.login-form > .form-group > .input_password > .eye_btn {
+  margin-left: 12px;
+  cursor: pointer;
+  font-size: 1.4rem;
 }
 
-.login-button {
+.login-form > .form-group > button {
   padding: 10px 20px;
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 1.2rem;
 }
 
-.login-button:hover {
+.login-form > .form-group > button:hover {
   background-color: #0056b3;
 }

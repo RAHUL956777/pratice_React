@@ -17,13 +17,14 @@ import Login from "./components/Login.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route exact path="/" element={<App />}>
-      <Route path="" element={<Home />} />
-      <Route path="/international-holiday" element={<Internatinal />} />
-      <Route path="/hotel" element={<India />} />
+    <>
+      <Route exact path="/" element={<App />}>
+        <Route path="" element={<Home />} />
+        <Route path="/international-holiday" element={<Internatinal />} />
+        <Route path="/hotel" element={<India />} />
+      </Route>
       <Route path="/login" element={<Login />} />
-
-    </Route>
+    </>
   )
 );
 
