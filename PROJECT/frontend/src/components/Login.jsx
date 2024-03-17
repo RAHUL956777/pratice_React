@@ -1,19 +1,15 @@
-import { useDispatch } from "react-redux";
-import { authSlice } from "../features/authSlice";
 import axios from "axios";
-import "../styles/Login.css";
-import { FaEyeSlash } from "react-icons/fa";
-import { FaRegEye } from "react-icons/fa";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { Link } from "react-router-dom";
-// import { useHistory } from "react-router-dom";
-
-const { loginStart, loginSuccess, loginFailure } = authSlice.actions;
+import { FaEyeSlash, FaRegEye } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { loginSuccess } from "../features/authSlice";
+import "../styles/Login.css";
 
 const Login = () => {
   const dispatch = useDispatch();
-  // const history = useHistory();
+  const navigate = useNavigate();
 
   const [inputType, setInputType] = useState("password");
   const [user, setUser] = useState({
@@ -21,10 +17,10 @@ const Login = () => {
     password: "",
   });
 
-  const handleLogin = async (event) => {
-    event.preventDefault();
+  const handleLogin = async (e) => {
+    e.preventDefault();
 
-    dispatch(loginStart());
+    // dispatch(loginStart());
 
     try {
       const { email, password } = user;
@@ -33,18 +29,25 @@ const Login = () => {
         email,
         password,
       });
-
+      console.log(res);
       const data = res.data;
-      dispatch(loginSuccess(data.user));
-      // history.push("/");
       toast.success("Logged in successfully");
+      dispatch(
+        loginSuccess({
+          user: data.message,
+          isAuthenticated: true,
+          loading: false,
+          error: null,
+        })
+      );
       console.log(data);
       setUser({
         email: "",
         password: "",
       });
+      navigate("/");
     } catch (error) {
-      dispatch(loginFailure(error.message));
+      console.log(error.message);
     }
   };
 

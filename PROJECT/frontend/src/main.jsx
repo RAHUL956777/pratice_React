@@ -11,8 +11,10 @@ import {
 import Home from "./pages/Home.jsx";
 import Internatinal from "./pages/International.jsx";
 import India from "./pages/India.jsx";
-import { ApiProvider } from "@reduxjs/toolkit/query/react";
-import { TripApi } from "./redux/api.js";
+// import { ApiProvider } from "@reduxjs/toolkit/query/react";
+// import { TripApi } from "./redux/api.js";
+import { Provider } from "react-redux";
+import { store } from "./app/store.js";
 import Login from "./components/Login.jsx";
 
 const router = createBrowserRouter(
@@ -20,8 +22,8 @@ const router = createBrowserRouter(
     <>
       <Route exact path="/" element={<App />}>
         <Route path="" element={<Home />} />
-        <Route path="/international-holiday" element={<Internatinal />} />
-        <Route path="/hotel" element={<India />} />
+        <Route exact path="/international-holiday" element={<Internatinal />} />
+        <Route exact path="/hotel" element={<India />} />
       </Route>
       <Route path="/login" element={<Login />} />
     </>
@@ -30,8 +32,8 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ApiProvider api={TripApi}>
+    <Provider store={store}>
       <RouterProvider router={router} />
-    </ApiProvider>
+    </Provider>
   </React.StrictMode>
 );

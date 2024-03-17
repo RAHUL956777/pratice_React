@@ -28,10 +28,9 @@ const Card = ({ image, location, price, saveprice }) => {
 
 Card.propTypes = {
   image: PropTypes.string.isRequired,
-  savings: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  saveprice: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
+  saveprice: PropTypes.number.isRequired,
+  price: PropTypes.number.isRequired,
 };
 
 export default Card;

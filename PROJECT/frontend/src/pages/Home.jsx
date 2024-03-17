@@ -29,7 +29,7 @@ const Home = () => {
   const [domesticTrips, setDomesticTrips] = useState([]);
   const [loading, setLoading] = useState(true);
   const [internationalTrips, setInternationalTrips] = useState([]);
- 
+
   useEffect(() => {
     const fetchAllTrips = async () => {
       try {
@@ -68,7 +68,7 @@ const Home = () => {
               ) : (
                 domesticTrips?.map((trip) => (
                   <Card
-                    key={trip.id}
+                    key={trip._id}
                     image={trip.image}
                     location={trip.location}
                     price={trip.price}
@@ -86,7 +86,7 @@ const Home = () => {
               ) : (
                 internationalTrips?.map((trip) => (
                   <Card
-                    key={trip.id}
+                    key={trip._id}
                     image={trip.image}
                     location={trip.location}
                     price={trip.price}

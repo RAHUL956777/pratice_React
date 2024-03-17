@@ -4,8 +4,11 @@ import { IoLogoWhatsapp } from "react-icons/io";
 import "../styles/Nav.css";
 import logo from "../../src/assets/logo.png";
 import { Link } from "react-router-dom";
+// import { useSelector } from "react-redux";
 
 const Nav = () => {
+  // const user = useSelector((state) => state.auth.user);
+
   return (
     <div className="nav">
       <div className="logo">
@@ -32,7 +35,18 @@ const Nav = () => {
             </a>
           </div>
           <div className="nav-top-data">
-            <Link to={"/login"} className="login">Login</Link>
+            {/* {user?._id ? (
+              <>
+                <img src={user.avatar} alt="" />
+              </>
+            ) : (
+              <Link to={"/login"} className="login">
+                Login
+              </Link>
+            )} */}
+            <Link to={"/login"} className="login">
+              Login
+            </Link>
           </div>
         </div>
         <div className="nav-bottom">

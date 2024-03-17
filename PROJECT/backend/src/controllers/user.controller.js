@@ -96,7 +96,6 @@ const isPasswordStrong = (password) => {
   return hasSpecialChar && hasCapitalLetter && hasNumber && hasMinimumLength;
 };
 
-
 const loginUser = asyncHandler(async (req, res) => {
   // req body -> data
   // username or email
@@ -141,11 +140,11 @@ const loginUser = asyncHandler(async (req, res) => {
     .cookie("accessToken", accessToken, options)
     .cookie("refreshToken", refreshToken, options)
     .json(
-      new ApiResponse(
-        200,
-        { user: loggedInUser, accessToken, refreshToken },
-        "User logged in successfully"
-      )
+      new ApiResponse(200, "User logged in successfully", {
+        user: loggedInUser,
+        accessToken,
+        refreshToken,
+      })
     );
 });
 
