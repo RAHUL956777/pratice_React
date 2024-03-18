@@ -4,7 +4,8 @@ import toast, { Toaster } from "react-hot-toast";
 import { FaEyeSlash, FaRegEye } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { loginSuccess } from "../features/authSlice";
+import { loginFailure, loginStart, loginSuccess } from "../features/authSlice";
+import { setAuth } from "../persist/authPersist.js";
 import "../styles/Login.css";
 
 const Login = () => {
@@ -23,18 +24,21 @@ const Login = () => {
     try {
       const { email, password } = user;
 
+      dispatch(loginStart());
+
       const res = await axios.post("http://localhost:8000/api/v1/users/login", {
         email,
         password,
       });
-      const data = res.data;
+      const userData = res.data;
       dispatch(
         loginSuccess({
-          user: data.data.user,
+          user: userData.data.user,
           isAuthenticated: true,
           loading: false,
         })
       );
+      setAuth(userData.data.user);
       setUser({
         email: "",
         password: "",
@@ -51,6 +55,7 @@ const Login = () => {
       if (error.response.status === 400) {
         toast.error("Username or email is required");
       }
+      dispatch(loginFailure(error.message));
     }
   };
   const togglePasswordVisiblity = () => {
