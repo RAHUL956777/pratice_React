@@ -20,8 +20,6 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    // dispatch(loginStart());
-
     try {
       const { email, password } = user;
 
@@ -29,28 +27,32 @@ const Login = () => {
         email,
         password,
       });
-      console.log(res);
       const data = res.data;
-      toast.success("Logged in successfully");
       dispatch(
         loginSuccess({
-          user: data.message,
+          user: data.data.user,
           isAuthenticated: true,
           loading: false,
-          error: null,
         })
       );
-      console.log(data);
       setUser({
         email: "",
         password: "",
       });
       navigate("/");
     } catch (error) {
-      console.log(error.message);
+      if (error.response.status === 401) {
+        toast.error("Invalid Credentials");
+      }
+      if (error.response.status === 404) {
+        toast.error("User doesnot exists");
+        navigate("/register");
+      }
+      if (error.response.status === 400) {
+        toast.error("Username or email is required");
+      }
     }
   };
-
   const togglePasswordVisiblity = () => {
     setInputType(inputType === "password" ? "text" : "password");
   };
@@ -75,7 +77,7 @@ const Login = () => {
                 type="email"
                 id="email"
                 name="email"
-                autoComplete="off"
+                // autoComplete="off"
                 required
                 value={user.email}
                 onChange={handleChange}
@@ -91,7 +93,7 @@ const Login = () => {
                 id="password"
                 name="password"
                 placeholder="Password"
-                autoComplete="off"
+                // autoComplete="off"
                 value={user.password}
                 onChange={handleChange}
                 required
