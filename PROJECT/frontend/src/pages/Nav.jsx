@@ -36,17 +36,20 @@ const Nav = () => {
           </div>
           <div className="nav-top-data">
             {user && user._id ? (
-              <div>
-                <img src={user.avatar} alt="" />
+              <div className="user-div">
+                <div className="user-div-img">
+                  <img src={user.avatar} alt="avatar" className="userimg" />
+                </div>
+                <div className="username">
+                  Welcome
+                  <br /> {user.username}
+                </div>
               </div>
             ) : (
               <Link to="/login" className="login">
                 Login
               </Link>
             )}
-            {/* <Link to={"/login"} className="login">
-              Login
-            </Link> */}
           </div>
         </div>
         <div className="nav-bottom">
