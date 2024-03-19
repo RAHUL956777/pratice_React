@@ -11,11 +11,10 @@ import {
 import Home from "./pages/Home.jsx";
 import Internatinal from "./pages/International.jsx";
 import India from "./pages/India.jsx";
-// import { ApiProvider } from "@reduxjs/toolkit/query/react";
-// import { TripApi } from "./redux/api.js";
 import { Provider } from "react-redux";
 import { store } from "./app/store.js";
 import Login from "./components/Login.jsx";
+import Register from "./components/Register.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,8 +25,7 @@ const router = createBrowserRouter(
         <Route exact path="/hotel" element={<India />} />
       </Route>
       <Route path="/login" element={<Login />} />
-      {/* <Route path="/login" element={<Register />} /> */}
-
+      <Route path="/register" element={<Register />} />
     </Route>
   )
 );

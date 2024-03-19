@@ -25,19 +25,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
-  /* border: 1px solid green; */
   height: 90%;
 }
 
 .login-form > .form-group {
   display: flex;
-  /* align-items: center; */
   justify-content: space-evenly;
   flex-direction: column;
   height: 33%;
   width: 100%;
-  /* border: 1px solid red; */
 }
 
 .login-form > .form-group > label {

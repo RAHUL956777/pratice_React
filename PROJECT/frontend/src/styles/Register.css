@@ -1,0 +1,74 @@
+/* Register.css */
+
+.registerwrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: antiquewhite;
+}
+
+.register {
+  width: 400px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.register h2 {
+  margin-bottom: 20px;
+}
+
+.register-form-group {
+  margin-bottom: 20px;
+}
+
+.register-form-group > label {
+  font-size: 1.2rem;
+}
+
+.input_username,
+.input_email,
+.input_password,
+.input_confirm_password {
+  position: relative;
+}
+
+.input_username input,
+.input_email input,
+.input_password input,
+.input_confirm_password input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-group button:hover {
+  background-color: #0056b3;
+}
+
+.form-group h3 {
+  margin-top: 20px;
+}
+
+.form-group a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.form-group a:hover {
+  text-decoration: underline;
+}
