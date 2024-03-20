@@ -31,14 +31,14 @@
 .input_username,
 .input_email,
 .input_password,
-.input_confirm_password {
+.input_confirmpassword {
   position: relative;
 }
 
 .input_username input,
 .input_email input,
 .input_password input,
-.input_confirm_password input {
+.input_confirmpassword input {
   width: 100%;
   padding: 10px;
   font-size: 1rem;

@@ -82,7 +82,7 @@ const Login = () => {
                 type="email"
                 id="email"
                 name="email"
-                // autoComplete="off"
+                autoComplete="off"
                 required
                 value={user.email}
                 onChange={handleChange}
@@ -98,7 +98,7 @@ const Login = () => {
                 id="password"
                 name="password"
                 placeholder="Password"
-                // autoComplete="off"
+                autoComplete="off"
                 value={user.password}
                 onChange={handleChange}
                 required
