@@ -1,10 +1,11 @@
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/Register.css";
 import { useState } from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     avatar: "",
     username: "",
@@ -24,10 +25,18 @@ const Register = () => {
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
-    setUser({
-      ...user,
-      [name]: value ? value : files[0],
-    });
+
+    if (name === "avatar") {
+      setUser({
+        ...user,
+        avatar: files[0],
+      });
+    } else {
+      setUser({
+        ...user,
+        [name]: value,
+      });
+    }
   };
 
   const handleRegister = async (e) => {
@@ -46,21 +55,28 @@ const Register = () => {
         return;
       }
 
+      const formData = new FormData();
+      formData.append("avatar", avatar);
+      formData.append("username", username);
+      formData.append("email", email);
+      formData.append("password", password);
+
       const res = await axios.post(
         "http://localhost:8000/api/v1/users/register",
+        formData,
         {
-          username,
-          email,
-          password,
-          avatar,
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
         }
       );
-      Navigate("/login");
 
       const userData = res.data;
       console.log(userData);
+      navigate("/login");
     } catch (error) {
       toast.error(error.message);
+      console.log(error);
     }
   };
 
