@@ -15,18 +15,25 @@ import { Provider } from "react-redux";
 import { store } from "./app/store.js";
 import Login from "./components/Login.jsx";
 import Register from "./components/Register.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route>
-      <Route exact path="/" element={<App />}>
-        <Route path="" element={<Home />} />
-        <Route exact path="/international-holiday" element={<Internatinal />} />
-        <Route exact path="/hotel" element={<India />} />
+    <>
+      <Route>
+        <Route exact path="/" element={<App />}>
+          <Route path="" element={<Home />} />
+          <Route
+            exact
+            path="/international-holiday"
+            element={<Internatinal />}
+          />
+          <Route exact path="/hotel" element={<India />} />
+        </Route>
       </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-    </Route>
+    </>
   )
 );
 

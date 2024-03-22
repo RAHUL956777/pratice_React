@@ -45,16 +45,17 @@ const Login = () => {
       });
       navigate("/");
     } catch (error) {
-      if (error.response.status === 401) {
-        toast.error("Invalid Credentials");
-      }
       if (error.response.status === 404) {
         toast.error("User doesnot exists");
         navigate("/register");
-      }
-      if (error.response.status === 400) {
+      } else if (error.response.status === 401) {
+        toast.error("Invalid Credentials");
+      } else if (error.response.status === 400) {
         toast.error("Username or email is required");
+      } else {
+        toast.error(error.message);
       }
+      navigate("/register");
       dispatch(loginFailure(error.message));
     }
   };
