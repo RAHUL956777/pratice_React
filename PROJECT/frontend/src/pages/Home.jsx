@@ -24,11 +24,15 @@ import axios from "axios";
 import HappyTravelers from "./HappyTravelers.jsx";
 import { useEffect, useState } from "react";
 import Card from "../components/Card.jsx";
+import { useDispatch } from "react-redux";
+import { UseSelector } from "react-redux";
 
 const Home = () => {
   const [domesticTrips, setDomesticTrips] = useState([]);
   const [loading, setLoading] = useState(true);
   const [internationalTrips, setInternationalTrips] = useState([]);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchAllTrips = async () => {
@@ -52,6 +56,8 @@ const Home = () => {
         setLoading(false);
       }
     };
+
+    
 
     fetchAllTrips();
   }, []);
